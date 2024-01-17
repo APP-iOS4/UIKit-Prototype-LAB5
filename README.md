@@ -24,5 +24,6 @@
 - 맛있는 여정을 떠나보세요! 🥬🌽🥓🥘🍱
 
   
-- ![제목](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/148533329/b8837885-c4c0-4f38-bbb8-91f00704fb68)
+- ![제목](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/148533329/d8b38151-bcd4-471d-ab72-93e667f63035)
+
 
