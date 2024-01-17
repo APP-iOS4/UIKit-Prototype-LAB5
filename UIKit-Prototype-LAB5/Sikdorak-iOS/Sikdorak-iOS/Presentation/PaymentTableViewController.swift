@@ -9,58 +9,137 @@ import UIKit
 
 class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private let tableView = UITableView()
+    
     var stepView = UIView()
-    var cartView = UIView()
     var paymentButton = UIButton()
     
     let mealKitList = MealKit.mockData
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUI()
+        setTableView()
         setLayout()
         setAction()
+        setupTableViewConstraints()
+
     }
     
-    @objc func tapOrderButton() {
-        let paymentTableViewController = PaymentTableViewController()
-        self.navigationController?.pushViewController(paymentTableViewController, animated: true)
+    @objc func tapPaymentButton() {
+        //  장바구니 비우기
+        
+        
+        //Alert 버튼 연결
+        showAlert()
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return mealKitList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! PaymentTableViewCell
+        
+        
+        
+        switch indexPath.row {
+            
+        case 0: 
+            cell.mainImageView.image = UIImage(named: "Buzzi")
+            cell.foodNameLabel.text = "부대찌개"
+            cell.descriptionLabel.text = """
+
+    80년 정통 존맛 부대찌개 밀키트
+       + 라면 사리
+       + 스팸
+       + 돼지 고기
+
+      합계 금액:                                                                          12,400원
+    """
+        case 1: 
+            cell.mainImageView.image = UIImage(named: "kimchi3")
+            cell.foodNameLabel.text = "김치찌개"
+            cell.descriptionLabel.text = """
+
+    100년 정통 존맛 김치찌개 밀키트
+       + 라면 사리
+       + 꽁치
+       + 돼지 고기
+
+      합계 금액:                                                                          16,000원
+    """
+        case 2:
+            cell.mainImageView.image = UIImage(named: "brownSoup")
+            cell.foodNameLabel.text = "된장찌개"
+            cell.descriptionLabel.text = """
+
+    200년 조선시대 정통 존맛 된장찌개 밀키트
+       + 조개
+       + 차돌박이
+       + 두부
+
+      합계 금액:                                                                          20,400원
+    """
+            
+        default: 
+            break
+        }
+        
+        cell.selectionStyle = .none
+        
         return cell
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "결제가 완료되었습니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default){_ in
+            //1페이지(intro) 로 돌아가기
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
 
 
 fileprivate extension PaymentTableViewController {
+    func setTableView() {
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        // 셀의 높이 설정
+        tableView.rowHeight = 300
+        tableView.register(PaymentTableViewCell.self, forCellReuseIdentifier: "CartCell")
+        
+        view.addSubview(tableView)
+    }
+    
+    func setupTableViewConstraints() {
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: stepView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: paymentButton.topAnchor)
+        ])
+    }
     
     func setUI() {
-       
         
-        let tableView: UITableView = {
-            let tableview = UITableView()
-            return tableview
-        }()
-        
-        let foodImage: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "icon")
-            return imageView
-        }()
-        
-        let label: UILabel = {
-            let label = UILabel()
-            label.text = "부대찌개"
-            label.textColor = UIColor.gray
-            return label
+        stepView = {
+            let view = UIView()
+            view.backgroundColor = .green
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
         }()
         
         paymentButton = {
@@ -81,13 +160,20 @@ fileprivate extension PaymentTableViewController {
         }()
          */
         
-        [paymentButton].forEach {
+        [paymentButton, stepView].forEach {
             view.addSubview($0)
         }
     }
     
     func setLayout() {
         let safeArea = view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            stepView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            stepView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            stepView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            stepView.heightAnchor.constraint(equalToConstant: 60)
+        ])
         
         NSLayoutConstraint.activate([
             paymentButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
@@ -97,9 +183,11 @@ fileprivate extension PaymentTableViewController {
         ])
     }
     
+    
     func setAction() {
-        paymentButton.addTarget(self, action: #selector(tapOrderButton), for: .touchUpInside)
+        paymentButton.addTarget(self, action: #selector(tapPaymentButton), for: .touchUpInside)
     }
+    
     
 }
 

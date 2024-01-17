@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08E945EC2B5764120037544E /* PaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E945EB2B5764120037544E /* PaymentTableViewController.swift */; };
+		08E945EE2B578AC60037544E /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E945ED2B578AC60037544E /* PaymentTableViewCell.swift */; };
 		1378513E2B5680B50080A36F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378513D2B5680B50080A36F /* AppDelegate.swift */; };
 		137851402B5680B50080A36F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378513F2B5680B50080A36F /* SceneDelegate.swift */; };
 		137851422B5680B50080A36F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851412B5680B50080A36F /* IntroViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		08E945EB2B5764120037544E /* PaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewController.swift; sourceTree = "<group>"; };
+		08E945ED2B578AC60037544E /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		1378513A2B5680B50080A36F /* Sikdorak-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sikdorak-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1378513D2B5680B50080A36F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1378513F2B5680B50080A36F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */,
 				1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */,
 				08E945EB2B5764120037544E /* PaymentTableViewController.swift */,
+				08E945ED2B578AC60037544E /* PaymentTableViewCell.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				137851612B56A98D0080A36F /* Topping.swift in Sources */,
 				137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */,
 				08E945EC2B5764120037544E /* PaymentTableViewController.swift in Sources */,
+				08E945EE2B578AC60037544E /* PaymentTableViewCell.swift in Sources */,
 				137851522B5681820080A36F /* BaseViewController.swift in Sources */,
 				1378513E2B5680B50080A36F /* AppDelegate.swift in Sources */,
 				1378515F2B56A9230080A36F /* Cart.swift in Sources */,

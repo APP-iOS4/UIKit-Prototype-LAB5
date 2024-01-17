@@ -14,6 +14,7 @@ struct MealKit {
     var likeCount: Int = 1111
     var price: Int = 0
     
+    
     static let mockData: [MealKit] = [
         MealKit(
             jjigae: Jjigae(
