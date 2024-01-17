@@ -21,99 +21,12 @@ class SelectMenuViewController: BaseViewController {
     
     var orderButton = UIButton()
 
-    let mealKitList = MealKit.mockData
-    var cartList: [MealKit] = [
-        MealKit(
-            jjigae: Jjigae(
-                image: "",
-                name: "김치찌개",
-                spicy: .a,
-                price: 6900
-            ),
-            topping: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ],
-            sari: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ]
-        ),
-        MealKit(
-            jjigae: Jjigae(
-                image: "",
-                name: "김치찌개",
-                spicy: .a,
-                price: 6900
-            ),
-            topping: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ],
-            sari: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ]
-        ),
-        MealKit(
-            jjigae: Jjigae(
-                image: "",
-                name: "김치찌개",
-                spicy: .a,
-                price: 6900
-            ),
-            topping: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ],
-            sari: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ]
-        ),
-        MealKit(
-            jjigae: Jjigae(
-                image: "",
-                name: "김치찌개",
-                spicy: .a,
-                price: 6900
-            ),
-            topping: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ],
-            sari: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ]
-        ),
-        MealKit(
-            jjigae: Jjigae(
-                image: "",
-                name: "김치찌개",
-                spicy: .a,
-                price: 6900
-            ),
-            topping: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ],
-            sari: [
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000),
-                Topping(image: "", name: "떡", price: 2000)
-            ]
-        )
-    ]
+    let mealKitList: [MealKit] = MealKit.mockData
+    var cartList: [Cart] = Cart.mockData {
+        didSet {
+            cartView.isHidden = cartList.count == 0
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +38,7 @@ class SelectMenuViewController: BaseViewController {
     
     @objc func tapOrderButton() {
         let paymentTableViewController = PaymentTableViewController()
-        paymentTableViewController.mealKitList = cartList
+        paymentTableViewController.cartList = cartList
         self.navigationController?.pushViewController(paymentTableViewController, animated: true)
     }
 }
@@ -151,7 +64,7 @@ extension SelectMenuViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case mealKitCollectionView:
             let width = (collectionView.frame.width - 32) / 4 - 1
-            return CGSize(width: width, height: width)
+            return CGSize(width: width, height: width * 1.1)
         case cartCollectionView:
             let width = (collectionView.frame.width - 32) / 5 - 1
             return CGSize(width: width, height: width * 0.7)
@@ -180,7 +93,7 @@ extension SelectMenuViewController: UICollectionViewDataSource {
             return cell
         case cartCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCollectionViewCell
-            cell.bind(mealKit: cartList[indexPath.row])
+            cell.bind(cartItem: cartList[indexPath.row])
             return cell
         default: return .init()
         }
@@ -223,6 +136,7 @@ fileprivate extension SelectMenuViewController {
         cartCountTitleLabel = {
             let label = UILabel()
             label.text = "장바구니"
+            label.font = .systemFont(ofSize: 20, weight: .bold)
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -230,6 +144,7 @@ fileprivate extension SelectMenuViewController {
         cartCountLabel = {
             let label = UILabel()
             label.text = " 5개 "
+            label.font = .systemFont(ofSize: 18, weight: .semibold)
             label.textColor = .white
             label.backgroundColor = .highlight
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -239,6 +154,7 @@ fileprivate extension SelectMenuViewController {
         totalPriceTitleLabel = {
             let label = UILabel()
             label.text = "총 주문금액"
+            label.font = .systemFont(ofSize: 18, weight: .semibold)
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -246,6 +162,7 @@ fileprivate extension SelectMenuViewController {
         totalPriceLabel = {
             let label = UILabel()
             label.text = "20,000원"
+            label.font = .systemFont(ofSize: 20, weight: .bold)
             label.textColor = .highlight
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -328,8 +245,8 @@ fileprivate extension SelectMenuViewController {
         NSLayoutConstraint.activate([
             orderButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             orderButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            orderButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            orderButton.heightAnchor.constraint(equalToConstant: 60)
+            orderButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            orderButton.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

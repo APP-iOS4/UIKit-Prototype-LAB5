@@ -8,20 +8,37 @@
 import UIKit
 
 class ToppingHeaderView: UICollectionReusableView {
+    
     var mealkitImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
-//        imageView.backgroundColor = .lightGray
+        imageView.layer.cornerRadius = 8
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     var titleLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.font = .systemFont(ofSize: 34, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     var priceLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var explainLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.text = "마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용마쉬써용"
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -29,22 +46,8 @@ class ToppingHeaderView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addSubview(mealkitImageView)
-        self.addSubview(titleLabel)
-        self.addSubview(priceLabel)
-        
-        NSLayoutConstraint.activate([
-            mealkitImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            mealkitImageView.bottomAnchor.constraint(equalTo: self.centerYAnchor),
-            mealkitImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mealkitImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: mealkitImageView.bottomAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            priceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        ])
+        setUI()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -56,4 +59,37 @@ class ToppingHeaderView: UICollectionReusableView {
         titleLabel.text = mealkit.jjigae.name
         priceLabel.text = "\(mealkit.jjigae.price.formatted())원"
     }
+    
+    func setUI() {
+        self.addSubview(mealkitImageView)
+        self.addSubview(titleLabel)
+        self.addSubview(priceLabel)
+        self.addSubview(explainLabel)
+    }
+    
+    func setLayout() {
+        NSLayoutConstraint.activate([
+            mealkitImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            mealkitImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            mealkitImageView.widthAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
+            
+            titleLabel.topAnchor.constraint(equalTo: mealkitImageView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: mealkitImageView.trailingAnchor, constant: 32),
+            
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            priceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 4),
+            
+            explainLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 8),
+            explainLabel.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor),
+            explainLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+    }
+    
+}
+
+
+#Preview(traits: .fixedLayout(width: 1400, height: 300)) {
+    let headerView = ToppingHeaderView()
+    headerView.bind(MealKit.mockData[0])
+    return headerView
 }

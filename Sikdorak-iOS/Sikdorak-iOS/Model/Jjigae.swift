@@ -10,6 +10,6 @@ import Foundation
 struct Jjigae {
     var image: String
     var name: String
-    var spicy: Spicy
+    var spicy: [Spicy]
     var price: Int
 }

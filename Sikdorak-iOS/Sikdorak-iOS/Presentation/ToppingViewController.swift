@@ -16,9 +16,10 @@ class ToppingViewController: BaseViewController {
     var doneButton = UIButton()
     
     var mealKitInfo: MealKit = .init(
-        jjigae: Jjigae(image: "", name: "", spicy: .a, price: 0),
+        jjigae: Jjigae(image: "", name: "", spicy: [], price: 0),
         topping: [],
-        sari: []
+        sari: [],
+        likeCount: 0
     )
     
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ extension ToppingViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             return CGSize(width: collectionView.frame.width, height: 300)
         default:
-            return CGSize(width: collectionView.frame.width, height: 50)
+            return CGSize(width: collectionView.frame.width, height: 60)
         }
     }
     
@@ -78,12 +79,7 @@ extension ToppingViewController: UICollectionViewDataSource {
         
         switch indexPath.section {
         case 0:
-            let testData: [Topping] = [
-                .init(image: "", name: "맵린이", price: 0),
-                .init(image: "", name: "일반인", price: 0),
-                .init(image: "", name: "맵킹", price: 0)
-            ]
-            cell.bind(topping: testData[indexPath.row])
+            cell.bind(spicy: mealKitInfo.jjigae.spicy[indexPath.row])
         case 1:
             cell.bind(topping: mealKitInfo.topping[indexPath.row])
         case 2:
@@ -138,10 +134,11 @@ fileprivate extension ToppingViewController {
         
         totalPriceLabel = {
             let label = UILabel()
-            label.text = "담은 금액: 0원"
+            label.text = "담은 금액: 10,000원   ."
+            label.font = .systemFont(ofSize: 18, weight: .semibold)
             label.textAlignment = .right
-            label.textColor = .white
-            label.backgroundColor = .darkGray
+            label.textColor = .black
+            label.backgroundColor = .sub
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -186,8 +183,8 @@ fileprivate extension ToppingViewController {
         NSLayoutConstraint.activate([
             doneButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             doneButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            doneButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            doneButton.heightAnchor.constraint(equalToConstant: 60)
+            doneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            doneButton.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

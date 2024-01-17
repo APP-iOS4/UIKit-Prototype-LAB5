@@ -46,6 +46,7 @@ fileprivate extension MealKitCollectionViewCell {
             let imageView = UIImageView()
             imageView.layer.cornerRadius = 8
             imageView.backgroundColor = .lightGray
+            imageView.clipsToBounds = true
             imageView.translatesAutoresizingMaskIntoConstraints = false
             return imageView
         }()
@@ -60,6 +61,7 @@ fileprivate extension MealKitCollectionViewCell {
         
         likeCountLabel = {
             let label = UILabel()
+            label.font = .systemFont(ofSize: 18, weight: .medium)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -67,6 +69,7 @@ fileprivate extension MealKitCollectionViewCell {
         
         titleLabel = {
             let label = UILabel()
+            label.font = .systemFont(ofSize: 20, weight: .bold)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -74,6 +77,7 @@ fileprivate extension MealKitCollectionViewCell {
         
         priceLabel = {
             let label = UILabel()
+            label.font = .systemFont(ofSize: 20, weight: .semibold)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -94,19 +98,29 @@ fileprivate extension MealKitCollectionViewCell {
         
         NSLayoutConstraint.activate([
             likeCountLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 8),
-            likeCountLabel.topAnchor.constraint(equalTo: mealKitImageView.bottomAnchor, constant: 8),
+            likeCountLabel.topAnchor.constraint(equalTo: mealKitImageView.bottomAnchor, constant: 12),
+            
             likeImageView.trailingAnchor.constraint(equalTo: likeCountLabel.leadingAnchor, constant: -2),
             likeImageView.centerYAnchor.constraint(equalTo: likeCountLabel.centerYAnchor),
+            
             likeImageView.widthAnchor.constraint(equalToConstant: 20),
             likeImageView.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: likeCountLabel.bottomAnchor, constant: 4),
+            titleLabel.topAnchor.constraint(equalTo: likeCountLabel.bottomAnchor, constant: 6),
+            
             priceLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2)
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6)
         ])
     }
     
+}
+
+
+#Preview(traits: .fixedLayout(width: 400, height: 400)) {
+    let mealKitCell = MealKitCollectionViewCell()
+    mealKitCell.bind(mealKit: MealKit.mockData[0])
+    return mealKitCell
 }

@@ -77,7 +77,7 @@ class PaymentTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bind(cartInfo: MealKit) {
+    func bind(cartInfo: Cart) {
         let toppingList = cartInfo.topping.map { "+ \($0.name)" }.joined(separator: "\n")
         let sariList = cartInfo.topping.map { "+ \($0.name)" }.joined(separator: "\n")
         
@@ -124,23 +124,6 @@ class PaymentTableViewCell: UITableViewCell {
 
 #Preview(traits: .defaultLayout) {
     let paymentTableViewCell = PaymentTableViewCell()
-    paymentTableViewCell.bind(cartInfo: MealKit(
-        jjigae: Jjigae(
-            image: "",
-            name: "김치찌개",
-            spicy: .a,
-            price: 6900
-        ),
-        topping: [
-            Topping(image: "", name: "떡", price: 2000),
-            Topping(image: "", name: "떡", price: 2000),
-            Topping(image: "", name: "떡", price: 2000)
-        ],
-        sari: [
-            Topping(image: "", name: "떡", price: 2000),
-            Topping(image: "", name: "떡", price: 2000),
-            Topping(image: "", name: "떡", price: 2000)
-        ]
-    ))
+    paymentTableViewCell.bind(cartInfo: Cart.mockData[0])
     return paymentTableViewCell
 }

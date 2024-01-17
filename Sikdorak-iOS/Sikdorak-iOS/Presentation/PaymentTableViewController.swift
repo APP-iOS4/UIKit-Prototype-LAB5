@@ -13,7 +13,7 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
     var tableView = UITableView()
     var paymentButton = UIButton()
     
-    var mealKitList = MealKit.mockData
+    var cartList = Cart.mockData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mealKitList.count
+        return cartList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

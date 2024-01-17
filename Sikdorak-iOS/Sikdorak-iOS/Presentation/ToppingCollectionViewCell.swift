@@ -30,6 +30,20 @@ class ToppingCollectionViewCell: UICollectionViewCell {
         priceLabel.text = "+ \(topping.price.formatted(.number))원"
     }
     
+    func bind(spicy: Spicy) {
+        switch spicy {
+        case .a:
+            mealKitImageView.image = UIImage(named: "spicy_easy")
+        case .b:
+            mealKitImageView.image = UIImage(named: "spicy_normal")
+        case .c:
+            mealKitImageView.image = UIImage(named: "spicy_hard")
+        }
+        
+        titleLabel.text = "\(spicy.rawValue)"
+        priceLabel.text = ""
+    }
+    
 }
 
 fileprivate extension ToppingCollectionViewCell {
