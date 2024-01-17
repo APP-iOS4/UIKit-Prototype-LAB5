@@ -25,9 +25,9 @@ class SelectMenuViewController: BaseViewController {
     }
     
     @objc func tapOrderButton() {
-        // 결제 화면 전환
-    }
-
+            let paymentTableViewController = PaymentTableViewController()
+            self.navigationController?.pushViewController(paymentTableViewController, animated: true)
+        }
 }
 
 
