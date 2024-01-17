@@ -9,13 +9,14 @@ import UIKit
 
 class ToppingViewController: BaseViewController {
 
-    var stepView = UIView()
+    var stepView = StepView()
+        
     var toppingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     var totalPriceLabel = UILabel()
     var doneButton = UIButton()
     
     var mealKitInfo: MealKit = .init(
-        jjigae: Jjigae(image: "", name: "", spicy: [], price: 0),
+        jjigae: Jjigae(image: "", name: "", spicy: .a, price: 0),
         topping: [],
         sari: []
     )
@@ -28,7 +29,9 @@ class ToppingViewController: BaseViewController {
         setAction()
     }
     
-
+    @objc func tapDoneButton() {
+        navigationController?.popViewController(animated: true)
+    }
 
 }
 
@@ -38,6 +41,15 @@ extension ToppingViewController: UICollectionViewDelegate {
 }
 
 extension ToppingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        switch section {
+        case 0:
+            return CGSize(width: collectionView.frame.width, height: 300)
+        default:
+            return CGSize(width: collectionView.frame.width, height: 50)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 32) / 4 - 1
@@ -49,13 +61,14 @@ extension ToppingViewController: UICollectionViewDelegateFlowLayout {
 extension ToppingViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return mealKitInfo.topping.count
-        case 1: return mealKitInfo.sari.count
+        case 0: return Spicy.allCases.count
+        case 1: return mealKitInfo.topping.count
+        case 2: return mealKitInfo.sari.count
         default: return 0
         }
     }
@@ -65,8 +78,15 @@ extension ToppingViewController: UICollectionViewDataSource {
         
         switch indexPath.section {
         case 0:
-            cell.bind(topping: mealKitInfo.topping[indexPath.row])
+            let testData: [Topping] = [
+                .init(image: "", name: "맵린이", price: 0),
+                .init(image: "", name: "일반인", price: 0),
+                .init(image: "", name: "맵킹", price: 0)
+            ]
+            cell.bind(topping: testData[indexPath.row])
         case 1:
+            cell.bind(topping: mealKitInfo.topping[indexPath.row])
+        case 2:
             cell.bind(topping: mealKitInfo.sari[indexPath.row])
         default: break
         }
@@ -74,9 +94,20 @@ extension ToppingViewController: UICollectionViewDataSource {
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch indexPath.section {
+        case 0:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToppingHeader", for: indexPath) as! ToppingHeaderView
+            headerView.bind(mealKitInfo)
+            return headerView
+        default:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ToppingTitleHeader", for: indexPath) as! ToppingTitleHeaderView
+            var category = ""
+            category = indexPath.section == 1 ? "토핑" : "사리"
+            headerView.bind(category)
+            return headerView
+        }
+    }
     
 }
 
@@ -85,12 +116,8 @@ fileprivate extension ToppingViewController {
     func setUI() {
         self.title = "재료 선택"
         
-        stepView = {
-            let view = UIView()
-            view.backgroundColor = .green
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
+        stepView.step = .selectTopping
+        stepView.translatesAutoresizingMaskIntoConstraints = false
         
         toppingCollectionView = {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
@@ -102,6 +129,8 @@ fileprivate extension ToppingViewController {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.register(ToppingCollectionViewCell.self, forCellWithReuseIdentifier: "ToppingCell")
+            collectionView.register(ToppingHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ToppingHeader")
+            collectionView.register(ToppingTitleHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ToppingTitleHeader")
             collectionView.backgroundColor = .main
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             return collectionView
@@ -163,12 +192,14 @@ fileprivate extension ToppingViewController {
     }
     
     func setAction() {
-        
+        doneButton.addTarget(self, action: #selector(tapDoneButton), for: .touchUpInside)
     }
     
 }
 
 
 #Preview(traits: .landscapeLeft) {
-    ToppingViewController()
+    let toppingViewController = ToppingViewController()
+    toppingViewController.mealKitInfo = .mockData[0]
+    return toppingViewController
 }

@@ -11,31 +11,11 @@ class IntroViewController: BaseViewController {
 
     var fullScreenButton: UIButton = {
         let button = UIButton()
-        button.setTitle("인트로 이미지", for: .normal)
+        button.setBackgroundImage(UIImage(named: "Intro"), for: .normal)
+        button.layer.opacity = 0.8
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    /*
-    let removeButtonImage = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "X")
-        imageView.frame = CGRect(x: 1160, y: 20, width:30, height: 30)
-        return imageView
-    }()
-    
-    let removeButton: UIButton = {
-        // 이미지 위에 덧씌워질 가상의 투명한 버튼
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.alpha = 0.35
-        button.frame = CGRect(x: 1160, y: 20, width:30, height: 30)
-        
-        //button.addTarget(self, action: #selector(), for: .touchUpInside)
-         
-        return button
-    }()
-     */
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -27,7 +27,7 @@ class MealKitCollectionViewCell: UICollectionViewCell {
     }
     
     func bind(mealKit: MealKit) {
-        mealKitImageView.image = UIImage(named: "ramen_sari")
+        mealKitImageView.image = UIImage(named: "\(mealKit.jjigae.image)")
         likeCountLabel.text = mealKit.likeCount.formatted(.number)
         titleLabel.text = mealKit.jjigae.name
         priceLabel.text = "\(mealKit.jjigae.price.formatted(.number))원 ~"

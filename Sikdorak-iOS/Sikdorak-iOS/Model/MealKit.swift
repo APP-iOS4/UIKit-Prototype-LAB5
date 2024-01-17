@@ -18,46 +18,46 @@ struct MealKit {
     static let mockData: [MealKit] = [
         MealKit(
             jjigae: Jjigae(
-                image: "",
+                image: "kimchi",
                 name: "김치찌개",
-                spicy: [.a, .b, .c],
+                spicy: .a,
                 price: 7000
             ),
             topping: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "참치",
                     price: 1500
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "꽁치",
                     price: 1500
                 )
             ],
             sari: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "라면",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "당면",
                     price: 1000
                 ),
@@ -65,36 +65,36 @@ struct MealKit {
         ),
         MealKit(
             jjigae: Jjigae(
-                image: "",
+                image: "brownSoup",
                 name: "된장찌개",
-                spicy: [.a, .b, .c],
+                spicy: .b,
                 price: 6000
             ),
             topping: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "소고기",
                     price: 3000
                 ),
             ],
             sari: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "라면",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "당면",
                     price: 1000
                 ),
@@ -102,56 +102,56 @@ struct MealKit {
         ),
         MealKit(
             jjigae: Jjigae(
-                image: "",
+                image: "Buzzi",
                 name: "부대찌개",
-                spicy: [.a, .b, .c],
+                spicy: .c,
                 price: 8000
             ),
             topping: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "참치",
                     price: 2000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "햄",
                     price: 2500
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "스팸",
                     price: 3000
                 )
             ],
             sari: [
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "라면",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "우동",
                     price: 1500
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "당면",
                     price: 1000
                 ),
                 Topping(
-                    image: "",
+                    image: "ramen_sari",
                     name: "떡",
                     price: 1000
                 )

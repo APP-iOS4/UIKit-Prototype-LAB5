@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Spicy: String {
+enum Spicy: String, CaseIterable {
     case a = "순한맛"
     case b = "보통맛"
     case c = "매운맛"

@@ -9,12 +9,111 @@ import UIKit
 
 class SelectMenuViewController: BaseViewController {
     
-    var stepView = UIView()
-    var mealKitCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var stepView = StepView()
+    var mealKitCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    
     var cartView = UIView()
+    var cartCountTitleLabel = UILabel()
+    var cartCountLabel = UILabel()
+    var totalPriceTitleLabel = UILabel()
+    var totalPriceLabel = UILabel()
+    var cartCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    
     var orderButton = UIButton()
 
     let mealKitList = MealKit.mockData
+    var cartList: [MealKit] = [
+        MealKit(
+            jjigae: Jjigae(
+                image: "",
+                name: "김치찌개",
+                spicy: .a,
+                price: 6900
+            ),
+            topping: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ],
+            sari: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ]
+        ),
+        MealKit(
+            jjigae: Jjigae(
+                image: "",
+                name: "김치찌개",
+                spicy: .a,
+                price: 6900
+            ),
+            topping: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ],
+            sari: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ]
+        ),
+        MealKit(
+            jjigae: Jjigae(
+                image: "",
+                name: "김치찌개",
+                spicy: .a,
+                price: 6900
+            ),
+            topping: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ],
+            sari: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ]
+        ),
+        MealKit(
+            jjigae: Jjigae(
+                image: "",
+                name: "김치찌개",
+                spicy: .a,
+                price: 6900
+            ),
+            topping: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ],
+            sari: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ]
+        ),
+        MealKit(
+            jjigae: Jjigae(
+                image: "",
+                name: "김치찌개",
+                spicy: .a,
+                price: 6900
+            ),
+            topping: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ],
+            sari: [
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000),
+                Topping(image: "", name: "떡", price: 2000)
+            ]
+        )
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,39 +124,66 @@ class SelectMenuViewController: BaseViewController {
     }
     
     @objc func tapOrderButton() {
-            let paymentTableViewController = PaymentTableViewController()
-            self.navigationController?.pushViewController(paymentTableViewController, animated: true)
-        }
+        let paymentTableViewController = PaymentTableViewController()
+        paymentTableViewController.mealKitList = cartList
+        self.navigationController?.pushViewController(paymentTableViewController, animated: true)
+    }
 }
 
 
 extension SelectMenuViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let toppingViewController = ToppingViewController()
-        toppingViewController.mealKitInfo = mealKitList[indexPath.row]
-        self.navigationController?.pushViewController(toppingViewController, animated: true)
+        switch collectionView {
+        case mealKitCollectionView:
+            let toppingViewController = ToppingViewController()
+            toppingViewController.mealKitInfo = mealKitList[indexPath.row]
+            self.navigationController?.pushViewController(toppingViewController, animated: true)
+            
+        default: break
+        }
     }
     
 }
 
 extension SelectMenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - 32) / 4 - 1
-        return CGSize(width: width, height: width)
+        switch collectionView {
+        case mealKitCollectionView:
+            let width = (collectionView.frame.width - 32) / 4 - 1
+            return CGSize(width: width, height: width)
+        case cartCollectionView:
+            let width = (collectionView.frame.width - 32) / 5 - 1
+            return CGSize(width: width, height: width * 0.7)
+        default: return .zero
+        }
     }
 }
 
 extension SelectMenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mealKitList.count
+        switch collectionView {
+        case mealKitCollectionView:
+            return mealKitList.count
+        case cartCollectionView:
+            return cartList.count
+        default: return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealKitCell", for: indexPath) as! MealKitCollectionViewCell
-        cell.bind(mealKit: mealKitList[indexPath.row])
-        return cell
+        switch collectionView {
+        case mealKitCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealKitCell", for: indexPath) as! MealKitCollectionViewCell
+            cell.bind(mealKit: mealKitList[indexPath.row])
+            return cell
+        case cartCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCollectionViewCell
+            cell.bind(mealKit: cartList[indexPath.row])
+            return cell
+        default: return .init()
+        }
     }
     
 }
@@ -69,12 +195,8 @@ fileprivate extension SelectMenuViewController {
         navigationController?.navigationBar.tintColor = .highlight
         navigationController?.navigationBar.backgroundColor = .sub
         
-        stepView = {
-            let view = UIView()
-            view.backgroundColor = .green
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
+        stepView.step = .selectMenu
+        stepView.translatesAutoresizingMaskIntoConstraints = false
         
         mealKitCollectionView = {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
@@ -92,9 +214,57 @@ fileprivate extension SelectMenuViewController {
         
         cartView = {
             let view = UIView()
-            view.backgroundColor = .red
+            view.backgroundColor = .sub
+            view.layer.cornerRadius = 8
             view.translatesAutoresizingMaskIntoConstraints = false
             return view
+        }()
+        
+        cartCountTitleLabel = {
+            let label = UILabel()
+            label.text = "장바구니"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        cartCountLabel = {
+            let label = UILabel()
+            label.text = " 5개 "
+            label.textColor = .white
+            label.backgroundColor = .highlight
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        totalPriceTitleLabel = {
+            let label = UILabel()
+            label.text = "총 주문금액"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        totalPriceLabel = {
+            let label = UILabel()
+            label.text = "20,000원"
+            label.textColor = .highlight
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        cartCollectionView = {
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+            let flowLayout = UICollectionViewFlowLayout()
+            flowLayout.minimumInteritemSpacing = 4
+            flowLayout.scrollDirection = .horizontal
+            collectionView.collectionViewLayout = flowLayout
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.register(CartCollectionViewCell.self, forCellWithReuseIdentifier: "CartCell")
+            collectionView.backgroundColor = .clear
+            collectionView.showsHorizontalScrollIndicator = false
+            collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            return collectionView
         }()
         
         orderButton = {
@@ -107,6 +277,10 @@ fileprivate extension SelectMenuViewController {
         
         [stepView, mealKitCollectionView, cartView, orderButton].forEach {
             view.addSubview($0)
+        }
+        
+        [cartCountTitleLabel, cartCountLabel, totalPriceLabel, totalPriceTitleLabel, cartCollectionView].forEach {
+            cartView.addSubview($0)
         }
     }
     
@@ -131,7 +305,24 @@ fileprivate extension SelectMenuViewController {
             cartView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             cartView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             cartView.bottomAnchor.constraint(equalTo: orderButton.topAnchor),
-            cartView.heightAnchor.constraint(equalToConstant: 150)
+            cartView.heightAnchor.constraint(equalToConstant: 240),
+            
+            cartCountTitleLabel.leadingAnchor.constraint(equalTo: cartView.leadingAnchor, constant: 24),
+            cartCountTitleLabel.bottomAnchor.constraint(equalTo: cartCollectionView.topAnchor, constant: -2),
+            
+            cartCountLabel.leadingAnchor.constraint(equalTo: cartCountTitleLabel.trailingAnchor, constant: 8),
+            cartCountLabel.bottomAnchor.constraint(equalTo: cartCollectionView.topAnchor, constant: -2),
+            
+            totalPriceTitleLabel.trailingAnchor.constraint(equalTo: totalPriceLabel.leadingAnchor, constant: -8),
+            totalPriceTitleLabel.bottomAnchor.constraint(equalTo: cartCollectionView.topAnchor, constant: -2),
+            
+            totalPriceLabel.trailingAnchor.constraint(equalTo: cartView.trailingAnchor, constant: -48),
+            totalPriceLabel.bottomAnchor.constraint(equalTo: cartCollectionView.topAnchor, constant: -2),
+            
+            cartCollectionView.leadingAnchor.constraint(equalTo: cartView.leadingAnchor),
+            cartCollectionView.trailingAnchor.constraint(equalTo: cartView.trailingAnchor),
+            cartCollectionView.bottomAnchor.constraint(equalTo: cartView.bottomAnchor),
+            cartCollectionView.heightAnchor.constraint(equalToConstant: 200)
         ])
         
         NSLayoutConstraint.activate([

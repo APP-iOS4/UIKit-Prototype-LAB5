@@ -25,9 +25,9 @@ class ToppingCollectionViewCell: UICollectionViewCell {
     }
     
     func bind(topping: Topping) {
-//        mealKitImageView.image = UIImage(named: "\(topping.image)")
+        mealKitImageView.image = UIImage(named: "\(topping.image)")
         titleLabel.text = topping.name
-        priceLabel.text = "\(topping.price.formatted(.number))원"
+        priceLabel.text = "+ \(topping.price.formatted(.number))원"
     }
     
 }
@@ -76,7 +76,7 @@ fileprivate extension ToppingCollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: mealKitImageView.bottomAnchor, constant: 16),
-            priceLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            priceLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -2),
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2)
         ])
     }

@@ -9,13 +9,11 @@ import UIKit
 
 class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let tableView = UITableView()
-    
-    var stepView = UIView()
+    var stepView = StepView()
+    var tableView = UITableView()
     var paymentButton = UIButton()
     
-    let mealKitList = MealKit.mockData
-    
+    var mealKitList = MealKit.mockData
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +23,6 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
         setLayout()
         setAction()
         setupTableViewConstraints()
-
     }
     
     @objc func tapPaymentButton() {
@@ -111,13 +108,11 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
 
 fileprivate extension PaymentTableViewController {
     func setTableView() {
-        
         tableView.dataSource = self
         tableView.delegate = self
         // 셀의 높이 설정
-        tableView.rowHeight = 300
+        tableView.rowHeight = 360
         tableView.register(PaymentTableViewCell.self, forCellReuseIdentifier: "CartCell")
-        
         view.addSubview(tableView)
     }
     
@@ -135,12 +130,8 @@ fileprivate extension PaymentTableViewController {
     
     func setUI() {
         
-        stepView = {
-            let view = UIView()
-            view.backgroundColor = .green
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
+        stepView.step = .payment
+        stepView.translatesAutoresizingMaskIntoConstraints = false
         
         paymentButton = {
             let button = UIButton()

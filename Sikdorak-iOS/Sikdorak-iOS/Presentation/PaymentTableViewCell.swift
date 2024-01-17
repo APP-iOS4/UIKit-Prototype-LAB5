@@ -18,15 +18,32 @@ class PaymentTableViewCell: UITableViewCell {
     
     let foodNameLabel: UILabel = {
         let label = UILabel()
+        label.text = "음식 이름"
         label.font = UIFont.boldSystemFont(ofSize: 40)
-        
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.text = "마쉬써요"
         label.font = UIFont.systemFont(ofSize: 28)
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let toppingLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let sariLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -56,61 +73,74 @@ class PaymentTableViewCell: UITableViewCell {
         setConstraints()
     }
     
-    func setupStackView() {
-        
-        
-        self.contentView.addSubview(mainImageView)
-        self.contentView.addSubview(foodNameLabel)
-        self.contentView.addSubview(descriptionLabel)
-        self.contentView.addSubview(removeButtonImage)
-        self.contentView.addSubview(removeButton)
-        
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bind(cartInfo: MealKit) {
+        let toppingList = cartInfo.topping.map { "+ \($0.name)" }.joined(separator: "\n")
+        let sariList = cartInfo.topping.map { "+ \($0.name)" }.joined(separator: "\n")
+        
+        toppingLabel.text = toppingList
+        sariLabel.text = sariList
+    }
+    
+    func setupStackView() {
+        self.contentView.addSubview(mainImageView)
+        self.contentView.addSubview(foodNameLabel)
+        self.contentView.addSubview(descriptionLabel)
+        self.contentView.addSubview(toppingLabel)
+        self.contentView.addSubview(sariLabel)
+        self.contentView.addSubview(removeButtonImage)
+        self.contentView.addSubview(removeButton)
+    }
     
     func setConstraints() {
-        setMainImageViewConstraints()
-        setFoodNameLabelConstraints()
-        setDescriptionLabelConstraints()
-    }
-    
-    func setMainImageViewConstraints() {
-        
         NSLayoutConstraint.activate([
+            mainImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            mainImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 16),
             mainImageView.heightAnchor.constraint(equalToConstant: 220),
             mainImageView.widthAnchor.constraint(equalToConstant: 220),
-            mainImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 200),
-            mainImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
-    }
-    
-    func setFoodNameLabelConstraints() {
-        foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            foodNameLabel.heightAnchor.constraint(equalToConstant: 100),
-            foodNameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 470),
-            foodNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor)
+            foodNameLabel.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 64),
+            foodNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32)
         ])
-    }
-    
-    func setDescriptionLabelConstraints() {
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 300),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 800),
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 500),
-            descriptionLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
+            descriptionLabel.leadingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: 4),
+            descriptionLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 10),
             
+            toppingLabel.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor, constant: 0),
+            toppingLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
+            
+            sariLabel.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor, constant: 0),
+            sariLabel.topAnchor.constraint(equalTo: toppingLabel.bottomAnchor, constant: 8)
         ])
     }
     
 }
 
 #Preview(traits: .defaultLayout) {
-    PaymentTableViewController()
+    let paymentTableViewCell = PaymentTableViewCell()
+    paymentTableViewCell.bind(cartInfo: MealKit(
+        jjigae: Jjigae(
+            image: "",
+            name: "김치찌개",
+            spicy: .a,
+            price: 6900
+        ),
+        topping: [
+            Topping(image: "", name: "떡", price: 2000),
+            Topping(image: "", name: "떡", price: 2000),
+            Topping(image: "", name: "떡", price: 2000)
+        ],
+        sari: [
+            Topping(image: "", name: "떡", price: 2000),
+            Topping(image: "", name: "떡", price: 2000),
+            Topping(image: "", name: "떡", price: 2000)
+        ]
+    ))
+    return paymentTableViewCell
 }
-
