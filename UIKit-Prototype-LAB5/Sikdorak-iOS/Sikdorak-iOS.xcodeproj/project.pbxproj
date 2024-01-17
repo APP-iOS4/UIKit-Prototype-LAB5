@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08E945EC2B5764120037544E /* PaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E945EB2B5764120037544E /* PaymentTableViewController.swift */; };
+		1378513E2B5680B50080A36F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378513D2B5680B50080A36F /* AppDelegate.swift */; };
+		137851402B5680B50080A36F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378513F2B5680B50080A36F /* SceneDelegate.swift */; };
+		137851422B5680B50080A36F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851412B5680B50080A36F /* IntroViewController.swift */; };
+		137851472B5680B70080A36F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137851462B5680B70080A36F /* Assets.xcassets */; };
+		1378514A2B5680B70080A36F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137851482B5680B70080A36F /* LaunchScreen.storyboard */; };
+		137851522B5681820080A36F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851512B5681820080A36F /* BaseViewController.swift */; };
+		137851582B5682030080A36F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137851572B5682030080A36F /* Colors.xcassets */; };
+		1378515A2B56A76F0080A36F /* SelectMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851592B56A76F0080A36F /* SelectMenuViewController.swift */; };
+		1378515D2B56A9130080A36F /* MealKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378515C2B56A9130080A36F /* MealKit.swift */; };
+		1378515F2B56A9230080A36F /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378515E2B56A9230080A36F /* Cart.swift */; };
+		137851612B56A98D0080A36F /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851602B56A98D0080A36F /* Topping.swift */; };
+		137851652B56B25F0080A36F /* Jjigae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851642B56B25F0080A36F /* Jjigae.swift */; };
+		137851672B56B45B0080A36F /* Spicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851662B56B45B0080A36F /* Spicy.swift */; };
+		137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */; };
+		1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516A2B56E20D0080A36F /* ToppingViewController.swift */; };
+		1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08E945EB2B5764120037544E /* PaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewController.swift; sourceTree = "<group>"; };
+		1378513A2B5680B50080A36F /* Sikdorak-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sikdorak-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1378513D2B5680B50080A36F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1378513F2B5680B50080A36F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		137851412B5680B50080A36F /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		137851462B5680B70080A36F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		137851492B5680B70080A36F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1378514B2B5680B70080A36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		137851512B5681820080A36F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		137851572B5682030080A36F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		137851592B56A76F0080A36F /* SelectMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMenuViewController.swift; sourceTree = "<group>"; };
+		1378515C2B56A9130080A36F /* MealKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealKit.swift; sourceTree = "<group>"; };
+		1378515E2B56A9230080A36F /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		137851602B56A98D0080A36F /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
+		137851642B56B25F0080A36F /* Jjigae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jjigae.swift; sourceTree = "<group>"; };
+		137851662B56B45B0080A36F /* Spicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spicy.swift; sourceTree = "<group>"; };
+		137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealKitCollectionViewCell.swift; sourceTree = "<group>"; };
+		1378516A2B56E20D0080A36F /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
+		1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingCollectionViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		137851372B5680B50080A36F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		137851312B5680B50080A36F = {
+			isa = PBXGroup;
+			children = (
+				1378513C2B5680B50080A36F /* Sikdorak-iOS */,
+				1378513B2B5680B50080A36F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1378513B2B5680B50080A36F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1378513A2B5680B50080A36F /* Sikdorak-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1378513C2B5680B50080A36F /* Sikdorak-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				137851562B5681BC0080A36F /* App */,
+				1378515B2B56A8F20080A36F /* Model */,
+				137851542B5681A30080A36F /* Presentation */,
+				137851552B5681B30080A36F /* Common */,
+				137851532B5681870080A36F /* Resource */,
+			);
+			path = "Sikdorak-iOS";
+			sourceTree = "<group>";
+		};
+		137851532B5681870080A36F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1378514B2B5680B70080A36F /* Info.plist */,
+				137851462B5680B70080A36F /* Assets.xcassets */,
+				137851572B5682030080A36F /* Colors.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		137851542B5681A30080A36F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				137851482B5680B70080A36F /* LaunchScreen.storyboard */,
+				137851412B5680B50080A36F /* IntroViewController.swift */,
+				137851592B56A76F0080A36F /* SelectMenuViewController.swift */,
+				1378516A2B56E20D0080A36F /* ToppingViewController.swift */,
+				137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */,
+				1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */,
+				08E945EB2B5764120037544E /* PaymentTableViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		137851552B5681B30080A36F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				137851512B5681820080A36F /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		137851562B5681BC0080A36F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1378513D2B5680B50080A36F /* AppDelegate.swift */,
+				1378513F2B5680B50080A36F /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1378515B2B56A8F20080A36F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1378515C2B56A9130080A36F /* MealKit.swift */,
+				137851642B56B25F0080A36F /* Jjigae.swift */,
+				137851602B56A98D0080A36F /* Topping.swift */,
+				1378515E2B56A9230080A36F /* Cart.swift */,
+				137851662B56B45B0080A36F /* Spicy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		137851392B5680B50080A36F /* Sikdorak-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1378514E2B5680B70080A36F /* Build configuration list for PBXNativeTarget "Sikdorak-iOS" */;
+			buildPhases = (
+				137851362B5680B50080A36F /* Sources */,
+				137851372B5680B50080A36F /* Frameworks */,
+				137851382B5680B50080A36F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sikdorak-iOS";
+			productName = "Sikdorak-iOS";
+			productReference = 1378513A2B5680B50080A36F /* Sikdorak-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		137851322B5680B50080A36F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					137851392B5680B50080A36F = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 137851352B5680B50080A36F /* Build configuration list for PBXProject "Sikdorak-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 137851312B5680B50080A36F;
+			productRefGroup = 1378513B2B5680B50080A36F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				137851392B5680B50080A36F /* Sikdorak-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		137851382B5680B50080A36F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				137851582B5682030080A36F /* Colors.xcassets in Resources */,
+				1378514A2B5680B70080A36F /* LaunchScreen.storyboard in Resources */,
+				137851472B5680B70080A36F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		137851362B5680B50080A36F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				137851422B5680B50080A36F /* IntroViewController.swift in Sources */,
+				1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */,
+				137851612B56A98D0080A36F /* Topping.swift in Sources */,
+				137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */,
+				08E945EC2B5764120037544E /* PaymentTableViewController.swift in Sources */,
+				137851522B5681820080A36F /* BaseViewController.swift in Sources */,
+				1378513E2B5680B50080A36F /* AppDelegate.swift in Sources */,
+				1378515F2B56A9230080A36F /* Cart.swift in Sources */,
+				1378515D2B56A9130080A36F /* MealKit.swift in Sources */,
+				1378515A2B56A76F0080A36F /* SelectMenuViewController.swift in Sources */,
+				137851652B56B25F0080A36F /* Jjigae.swift in Sources */,
+				137851672B56B45B0080A36F /* Spicy.swift in Sources */,
+				1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */,
+				137851402B5680B50080A36F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		137851482B5680B70080A36F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				137851492B5680B70080A36F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1378514C2B5680B70080A36F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1378514D2B5680B70080A36F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1378514F2B5680B70080A36F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LTN66N935;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sikdorak-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Sikdorak;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jiho.Sikdorak-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		137851502B5680B70080A36F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LTN66N935;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sikdorak-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Sikdorak;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jiho.Sikdorak-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		137851352B5680B50080A36F /* Build configuration list for PBXProject "Sikdorak-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1378514C2B5680B70080A36F /* Debug */,
+				1378514D2B5680B70080A36F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1378514E2B5680B70080A36F /* Build configuration list for PBXNativeTarget "Sikdorak-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1378514F2B5680B70080A36F /* Debug */,
+				137851502B5680B70080A36F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 137851322B5680B50080A36F /* Project object */;
+}
