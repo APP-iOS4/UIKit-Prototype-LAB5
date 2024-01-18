@@ -47,42 +47,56 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
             
         case 0: 
             cell.mainImageView.image = UIImage(named: "Buzzi")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "부대찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "35,000 원"
+            cell.descriptionLabel.text = "가격 : 8,000 원"
 
-    80년 정통 존맛 부대찌개 밀키트
-       + 라면 사리
-       + 스팸
-       + 돼지 고기
 
-      합계 금액:                                                                          12,400원
-    """
         case 1: 
             cell.mainImageView.image = UIImage(named: "kimchi3")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "김치찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "34,000 원"
+            cell.descriptionLabel.text = "가격 : 7,000 원"
 
-    100년 정통 존맛 김치찌개 밀키트
-       + 라면 사리
-       + 꽁치
-       + 돼지 고기
-
-      합계 금액:                                                                          16,000원
-    """
+            
         case 2:
             cell.mainImageView.image = UIImage(named: "brownSoup")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "된장찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "33,000 원"
+            cell.descriptionLabel.text = "가격 : 6,000 원"
 
-    200년 조선시대 정통 존맛 된장찌개 밀키트
-       + 조개
-       + 차돌박이
-       + 두부
-
-      합계 금액:                                                                          20,400원
-    """
             
-        default: 
+        case 3:
+            cell.mainImageView.image = UIImage(named: "Buzzi")
+            cell.mainImageView.clipsToBounds = true
+            cell.foodNameLabel.text = "부대찌개"
+            cell.priceLabel.text = "35,000 원"
+            cell.descriptionLabel.text = "가격 : 8,000 원"
+
+            
+        case 4:
+            cell.mainImageView.image = UIImage(named: "kimchi3")
+            cell.mainImageView.clipsToBounds = true
+            cell.foodNameLabel.text = "김치찌개"
+            cell.priceLabel.text = "34,000 원"
+            cell.descriptionLabel.text = "가격 : 7,000 원"
+
+            
+        case 5:
+            cell.mainImageView.image = UIImage(named: "brownSoup")
+            cell.mainImageView.clipsToBounds = true
+            cell.foodNameLabel.text = "된장찌개"
+            cell.priceLabel.text = "33,000 원"
+            cell.descriptionLabel.text = "가격 : 6,000 원"
+
+            
+
+        
+            
+        default:
             break
         }
         
@@ -141,15 +155,7 @@ fileprivate extension PaymentTableViewController {
             return button
         }()
         
-        /*
-        mealKitImageView = {
-            let imageView = UIImageView()
-            imageView.layer.cornerRadius = 8
-            imageView.backgroundColor = .lightGray
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
-         */
+    
         
         [paymentButton, stepView].forEach {
             view.addSubview($0)
