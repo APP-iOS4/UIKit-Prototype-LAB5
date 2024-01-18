@@ -30,6 +30,7 @@
 		1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516A2B56E20D0080A36F /* ToppingViewController.swift */; };
 		1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */; };
 		138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138032FE2B58B80700956FDB /* UIImage+extension.swift */; };
+		138033012B58F09900956FDB /* SpicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138033002B58F09900956FDB /* SpicyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		1378516A2B56E20D0080A36F /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingCollectionViewCell.swift; sourceTree = "<group>"; };
 		138032FE2B58B80700956FDB /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		138033002B58F09900956FDB /* SpicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpicyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				136D106D2B57F27A00EE4D8F /* ToppingHeaderView.swift */,
 				136D106F2B57FC2000EE4D8F /* ToppingTitleHeaderView.swift */,
 				1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */,
+				138033002B58F09900956FDB /* SpicyTableViewCell.swift */,
 				08E945EB2B5764120037544E /* PaymentTableViewController.swift */,
 				08E945ED2B578AC60037544E /* PaymentTableViewCell.swift */,
 				136D10692B57D6E000EE4D8F /* CartCollectionViewCell.swift */,
@@ -243,6 +246,7 @@
 				1378515D2B56A9130080A36F /* MealKit.swift in Sources */,
 				1378515A2B56A76F0080A36F /* SelectMenuViewController.swift in Sources */,
 				137851652B56B25F0080A36F /* Jjigae.swift in Sources */,
+				138033012B58F09900956FDB /* SpicyTableViewCell.swift in Sources */,
 				137851672B56B45B0080A36F /* Spicy.swift in Sources */,
 				138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */,
 				1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */,
