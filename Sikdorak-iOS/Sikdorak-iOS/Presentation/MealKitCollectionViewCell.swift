@@ -15,11 +15,21 @@ class MealKitCollectionViewCell: UICollectionViewCell {
     var titleLabel = UILabel()
     var priceLabel = UILabel()
     
+    var toppingSelectedButton: UIButton = UIButton()
+    var cartSelectedButton: UIButton = UIButton()
+    
+    var toppingSelectedButtonTapped = { }
+    
+    @objc func buttonTapped() {
+        toppingSelectedButtonTapped()
+        }
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setUI()
         setLayout()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +41,9 @@ class MealKitCollectionViewCell: UICollectionViewCell {
         likeCountLabel.text = mealKit.likeCount.formatted(.number)
         titleLabel.text = mealKit.jjigae.name
         priceLabel.text = "\(mealKit.jjigae.price.formatted(.number))원 ~"
+        toppingSelectedButton.setTitle("재료 고르기", for: .normal)
+        cartSelectedButton.setTitle("카트 담기", for: .normal)
     }
-    
 }
 
 
@@ -83,10 +94,34 @@ fileprivate extension MealKitCollectionViewCell {
             return label
         }()
         
-        [mealKitImageView, likeImageView, likeCountLabel, titleLabel, priceLabel].forEach {
+        cartSelectedButton = {
+            let button = UIButton()
+            button.titleLabel?.text = "기본 주문"
+            button.tintColor = .black
+            button.frame.size = CGSize(width: 30, height: 18)
+            button.backgroundColor = .highlight
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            
+            return button
+        }()
+        
+        toppingSelectedButton = {
+            let button = UIButton()
+            button.titleLabel?.text = "토핑 고르기"
+            button.tintColor = .black
+            button.frame.size = CGSize(width: 30, height: 18)
+            button.backgroundColor = .highlight
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        
+        [mealKitImageView, likeImageView, likeCountLabel, titleLabel, priceLabel, cartSelectedButton, toppingSelectedButton].forEach {
             contentView.addSubview($0)
         }
     }
+    
     
     func setLayout() {
         NSLayoutConstraint.activate([
@@ -114,10 +149,16 @@ fileprivate extension MealKitCollectionViewCell {
             priceLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6)
         ])
+        
+        NSLayoutConstraint.activate([
+            cartSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 60),
+            cartSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3),
+            
+            toppingSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -60),
+            toppingSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3)
+        ])
     }
-    
 }
-
 
 #Preview(traits: .fixedLayout(width: 400, height: 400)) {
     let mealKitCell = MealKitCollectionViewCell()
