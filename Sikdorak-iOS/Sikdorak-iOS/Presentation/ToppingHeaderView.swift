@@ -14,7 +14,7 @@ class ToppingHeaderView: UICollectionReusableView {
         imageView.layer.cornerRadius = 8
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.lightGray.cgColor
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -55,7 +55,7 @@ class ToppingHeaderView: UICollectionReusableView {
     }
     
     func bind(_ mealkit: MealKit) {
-        mealkitImageView.image = UIImage(named: "\(mealkit.jjigae.image)")
+        mealkitImageView.image = UIImage(named: "\(mealkit.jjigae.image)")//?.resize(newWidth: 300)
         titleLabel.text = mealkit.jjigae.name
         priceLabel.text = "\(mealkit.jjigae.price.formatted())원"
     }
@@ -71,8 +71,9 @@ class ToppingHeaderView: UICollectionReusableView {
         NSLayoutConstraint.activate([
             mealkitImageView.topAnchor.constraint(equalTo: self.topAnchor),
             mealkitImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mealkitImageView.widthAnchor.constraint(equalTo: mealkitImageView.widthAnchor, constant: 200),
-            mealkitImageView.heightAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
+            mealkitImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            mealkitImageView.widthAnchor.constraint(equalToConstant: 300),
+//            mealkitImageView.heightAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
             
             titleLabel.topAnchor.constraint(equalTo: mealkitImageView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: mealkitImageView.trailingAnchor, constant: 32),

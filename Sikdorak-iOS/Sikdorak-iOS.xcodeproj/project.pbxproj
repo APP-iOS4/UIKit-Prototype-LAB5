@@ -29,6 +29,7 @@
 		137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */; };
 		1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516A2B56E20D0080A36F /* ToppingViewController.swift */; };
 		1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */; };
+		138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138032FE2B58B80700956FDB /* UIImage+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealKitCollectionViewCell.swift; sourceTree = "<group>"; };
 		1378516A2B56E20D0080A36F /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingCollectionViewCell.swift; sourceTree = "<group>"; };
+		138032FE2B58B80700956FDB /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				137851512B5681820080A36F /* BaseViewController.swift */,
+				138032FE2B58B80700956FDB /* UIImage+extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				1378515A2B56A76F0080A36F /* SelectMenuViewController.swift in Sources */,
 				137851652B56B25F0080A36F /* Jjigae.swift in Sources */,
 				137851672B56B45B0080A36F /* Spicy.swift in Sources */,
+				138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */,
 				1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */,
 				136D106C2B57EBE700EE4D8F /* StepView.swift in Sources */,
 				137851402B5680B50080A36F /* SceneDelegate.swift in Sources */,
