@@ -68,7 +68,7 @@ struct MealKit {
             jjigae: Jjigae(
                 image: "brownSoup",
                 name: "된장찌개",
-                spicy: [],
+                spicy: [.a, .b, .c],
                 price: 6000
             ),
             topping: [
@@ -212,7 +212,7 @@ struct MealKit {
             jjigae: Jjigae(
                 image: "brownSoup",
                 name: "된장찌개",
-                spicy: [],
+                spicy: [.a, .b, .c],
                 price: 6000
             ),
             topping: [
@@ -356,7 +356,7 @@ struct MealKit {
             jjigae: Jjigae(
                 image: "brownSoup",
                 name: "된장찌개",
-                spicy: [],
+                spicy: [.a, .b, .c],
                 price: 6000
             ),
             topping: [
