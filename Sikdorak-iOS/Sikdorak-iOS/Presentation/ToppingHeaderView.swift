@@ -71,7 +71,8 @@ class ToppingHeaderView: UICollectionReusableView {
         NSLayoutConstraint.activate([
             mealkitImageView.topAnchor.constraint(equalTo: self.topAnchor),
             mealkitImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mealkitImageView.widthAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
+            mealkitImageView.widthAnchor.constraint(equalTo: mealkitImageView.widthAnchor, constant: 200),
+            mealkitImageView.heightAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
             
             titleLabel.topAnchor.constraint(equalTo: mealkitImageView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: mealkitImageView.trailingAnchor, constant: 32),

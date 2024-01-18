@@ -25,22 +25,22 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ggongchi",
                     name: "꽁치",
                     price: 1500
                 )
@@ -52,12 +52,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -73,12 +73,12 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
@@ -90,12 +90,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -111,27 +111,27 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ham",
                     name: "햄",
                     price: 2500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "spam",
                     name: "스팸",
                     price: 3000
                 )
@@ -143,12 +143,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyoen",
                     name: "당면",
                     price: 1000
                 ),
@@ -169,22 +169,22 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ggongchi",
                     name: "꽁치",
                     price: 1500
                 )
@@ -196,12 +196,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -217,12 +217,12 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
@@ -234,12 +234,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -255,27 +255,27 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ham",
                     name: "햄",
                     price: 2500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "spam",
                     name: "스팸",
                     price: 3000
                 )
@@ -287,12 +287,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyoen",
                     name: "당면",
                     price: 1000
                 ),
@@ -303,8 +303,7 @@ struct MealKit {
                 )
             ],
             likeCount: 7821
-        ),
-        MealKit(
+        ),        MealKit(
             jjigae: Jjigae(
                 image: "kimchi",
                 name: "김치찌개",
@@ -313,22 +312,22 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ggongchi",
                     name: "꽁치",
                     price: 1500
                 )
@@ -340,12 +339,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -361,12 +360,12 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
@@ -378,12 +377,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyeon",
                     name: "당면",
                     price: 1000
                 ),
@@ -399,27 +398,27 @@ struct MealKit {
             ),
             topping: [
                 Topping(
-                    image: "ramen_sari",
+                    image: "pig",
                     name: "돼지고기",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "cow",
                     name: "소고기",
                     price: 3000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "chamchi",
                     name: "참치",
                     price: 2000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "ham",
                     name: "햄",
                     price: 2500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "spam",
                     name: "스팸",
                     price: 3000
                 )
@@ -431,12 +430,12 @@ struct MealKit {
                     price: 1000
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "udong_sari",
                     name: "우동",
                     price: 1500
                 ),
                 Topping(
-                    image: "ramen_sari",
+                    image: "dangmyoen",
                     name: "당면",
                     price: 1000
                 ),
@@ -447,6 +446,6 @@ struct MealKit {
                 )
             ],
             likeCount: 7821
-        )
+        ),
     ]
 }
