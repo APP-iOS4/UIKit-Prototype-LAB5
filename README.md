@@ -18,8 +18,19 @@
   
 ## 구현 목표
 - 밀키트를 커스터마이징 할 수 있도록 키오스크 플랫폼 개발
+- Xcode로 UIKit 기반의 앱 프로젝트 생성
 
 <br>
+
+## 실행환경
+- Xcode 15.2
+- iPadOs 17.0
+
+<br>
+
+1. Git 프로젝트를 Clone한다
+2. 프로젝트 폴더의 Sikdorak-iOS.xcodeproj 프로젝트 파일을 Xcode로 열기
+3. Xcode의 Run으로 실행
   
 ## 단계별 사용자 시나리오
 
@@ -82,8 +93,21 @@
 - 여러분의 취향에 맞춘 밀키트 Sikdorak 과 함께 
 - 맛있는 여정을 떠나보세요! 🥬🌽🥓🥘🍱
 
+<br>
+
+## 5조 조원 이름
+- [심상원](https://github.com/Upcircle2)
+######
+- [유승재](https://github.com/seungjaeyuu)
+######
+- [유지호](https://github.com/jihoooo97)
+######
+- [최준영](https://github.com/Devjunnn)
+
+<br>
+## License
+Licensed under the [MIT](LICENSE) license.
   
-- ![제목](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/148533329/d8b38151-bcd4-471d-ab72-93e667f63035)
 
   <br><br>
 
