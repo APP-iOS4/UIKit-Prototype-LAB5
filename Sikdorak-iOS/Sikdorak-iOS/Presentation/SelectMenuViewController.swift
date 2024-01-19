@@ -9,7 +9,6 @@ import UIKit
 
 class SelectMenuViewController: BaseViewController {
     
-    var stepView = StepView()
     var mealKitCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
     var cartView = UIView()
@@ -20,7 +19,12 @@ class SelectMenuViewController: BaseViewController {
     var cartCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
     var orderButton = UIButton()
-
+    let toppingSelectedButton = UIButton()
+    let cartSelectedButton = UIButton()
+    
+    
+    var cartCounter: Int = 0
+    
     let mealKitList: [MealKit] = MealKit.mockData
     var cartList: [Cart] = Cart.mockData {
         didSet {
@@ -36,13 +40,13 @@ class SelectMenuViewController: BaseViewController {
         setAction()
     }
     
+    // 주문하기 버튼
     @objc func tapOrderButton() {
         let paymentTableViewController = PaymentTableViewController()
         paymentTableViewController.cartList = cartList
         self.navigationController?.pushViewController(paymentTableViewController, animated: true)
     }
 }
-
 
 extension SelectMenuViewController: UICollectionViewDelegate {
     
@@ -56,15 +60,18 @@ extension SelectMenuViewController: UICollectionViewDelegate {
         default: break
         }
     }
-    
 }
 
 extension SelectMenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // 메뉴 컬렉션 뷰 크기 설정
         switch collectionView {
         case mealKitCollectionView:
-            let width = (collectionView.frame.width - 32) / 4 - 1
+            let width = (collectionView.frame.width - 32) / 4 - 2
             return CGSize(width: width, height: width * 1.1)
+            
+        // 카트 컬렉션 뷰 크기 설정
         case cartCollectionView:
             let width = (collectionView.frame.width - 32) / 5 - 1
             return CGSize(width: width, height: width * 0.7)
@@ -76,29 +83,54 @@ extension SelectMenuViewController: UICollectionViewDelegateFlowLayout {
 extension SelectMenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // 보여줄 셀의 갯수
         switch collectionView {
         case mealKitCollectionView:
             return mealKitList.count
         case cartCollectionView:
-            return cartList.count
+            return cartCounter
         default: return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // collectionView에 보여줄 데이터
         switch collectionView {
         case mealKitCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealKitCell", for: indexPath) as! MealKitCollectionViewCell
             cell.bind(mealKit: mealKitList[indexPath.row])
+            
+            
+            cell.toppingSelectedButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                let toppingViewController = ToppingViewController()
+                toppingViewController.mealKitInfo = self.mealKitList[indexPath.row]
+                self.navigationController?.pushViewController(toppingViewController, animated: true)
+            }
+            
+            cell.cartCounterDidChange = { [weak self] in
+                guard let self = self else { return }
+                self.cartCounter += 1
+                cartCollectionView.reloadData()
+                print(self.cartCounter)
+            }
             return cell
+            
         case cartCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCollectionViewCell
-            cell.bind(cartItem: cartList[indexPath.row])
+            cell.bind(cartItem: cartList[0])
+            
+            cell.cartCounterMinusDidChange = { [weak self] in
+                guard let self = self else { return }
+                self.cartCounter -= 1
+                cartCollectionView.reloadData()
+                print(self.cartCounter)
+            }
+             
             return cell
         default: return .init()
         }
     }
-    
 }
 
 fileprivate extension SelectMenuViewController {
@@ -107,15 +139,14 @@ fileprivate extension SelectMenuViewController {
         self.title = "밀키트"
         navigationController?.navigationBar.tintColor = .highlight
         navigationController?.navigationBar.backgroundColor = .sub
-        
-        stepView.step = .selectMenu
-        stepView.translatesAutoresizingMaskIntoConstraints = false
+        // 네비게이션바 LargeTitle 설정
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         mealKitCollectionView = {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
             let flowLayout = UICollectionViewFlowLayout()
-            flowLayout.minimumLineSpacing = 4
-//            flowLayout.minimumInteritemSpacing = 2
+            flowLayout.minimumLineSpacing = 14
+            //flowLayout.minimumInteritemSpacing = 2
             collectionView.collectionViewLayout = flowLayout
             collectionView.dataSource = self
             collectionView.delegate = self
@@ -192,7 +223,7 @@ fileprivate extension SelectMenuViewController {
             return button
         }()
         
-        [stepView, mealKitCollectionView, cartView, orderButton].forEach {
+        [mealKitCollectionView, cartView, orderButton].forEach {
             view.addSubview($0)
         }
         
@@ -205,16 +236,9 @@ fileprivate extension SelectMenuViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            stepView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            stepView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            stepView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            stepView.heightAnchor.constraint(equalToConstant: 60)
-        ])
-        
-        NSLayoutConstraint.activate([
             mealKitCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             mealKitCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
-            mealKitCollectionView.topAnchor.constraint(equalTo: stepView.bottomAnchor, constant: 16),
+            mealKitCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 14),
             mealKitCollectionView.bottomAnchor.constraint(equalTo: cartView.topAnchor)
         ])
         
@@ -254,6 +278,7 @@ fileprivate extension SelectMenuViewController {
         orderButton.addTarget(self, action: #selector(tapOrderButton), for: .touchUpInside)
     }
     
+
 }
 
 
