@@ -118,7 +118,7 @@
 <br>
 
 # License
-Copyright 멋쟁이사자처럼 Lab4. All rights reserved.
+Copyright 멋쟁이사자처럼 Lab5. All rights reserved.
 
 Licensed under the [MIT](LICENSE) license.
 
