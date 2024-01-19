@@ -20,8 +20,6 @@ class ToppingViewController: BaseViewController {
         likeCount: 0
     )
     
-    
-    
     var totalPrice: Int = 0 {
         didSet {
             totalPriceLabel.text = "\(totalPrice.formatted())원"
@@ -43,22 +41,7 @@ class ToppingViewController: BaseViewController {
 }
 
 
-extension ToppingViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! ToppingCollectionViewCell
-        
-        switch indexPath.section {
-        case 1:
-            print(mealKitInfo.topping[indexPath.row])
-        case 2:
-            print(mealKitInfo.sari[indexPath.row])
-        default: break
-        }
-        print(cell.toppingCount)
-    }
-    
-}
+extension ToppingViewController: UICollectionViewDelegate { }
 
 extension ToppingViewController: UICollectionViewDelegateFlowLayout {
     
@@ -102,14 +85,36 @@ extension ToppingViewController: UICollectionViewDataSource {
             
             cell.countButtonAction = { [weak self] in
                 guard let self = self else { return }
-                self.totalPrice = self.mealKitInfo.topping[indexPath.row].price * cell.toppingCount + self.mealKitInfo.jjigae.price
+                
+                let toppingPrices = self.mealKitInfo.topping.enumerated().map {
+                    let toppingCell = collectionView.cellForItem(at: IndexPath(row: $0.offset, section: 1)) as! ToppingCollectionViewCell
+                    return $0.element.price * toppingCell.toppingCount
+                }
+                
+                let sariPrices = self.mealKitInfo.sari.enumerated().map {
+                    let sariCell = collectionView.cellForItem(at: IndexPath(row: $0.offset, section: 2)) as! ToppingCollectionViewCell
+                    return $0.element.price * sariCell.toppingCount
+                }
+                
+                self.totalPrice = toppingPrices.reduce(0, +) + sariPrices.reduce(0, +) + self.mealKitInfo.jjigae.price
             }
         case 2:
             cell.bind(topping: mealKitInfo.sari[indexPath.row])
             
             cell.countButtonAction = { [weak self] in
                 guard let self = self else { return }
-                self.totalPrice = self.mealKitInfo.sari[indexPath.row].price * cell.toppingCount * cell.toppingCount + self.mealKitInfo.jjigae.price
+                
+                let toppingPrices = self.mealKitInfo.topping.enumerated().map {
+                    let toppingCell = collectionView.cellForItem(at: IndexPath(row: $0.offset, section: 1)) as! ToppingCollectionViewCell
+                    return $0.element.price * toppingCell.toppingCount
+                }
+                
+                let sariPrices = self.mealKitInfo.sari.enumerated().map {
+                    let sariCell = collectionView.cellForItem(at: IndexPath(row: $0.offset, section: 2)) as! ToppingCollectionViewCell
+                    return $0.element.price * sariCell.toppingCount
+                }
+                
+                self.totalPrice = toppingPrices.reduce(0, +) + sariPrices.reduce(0, +) + self.mealKitInfo.jjigae.price
             }
         default: break
         }
