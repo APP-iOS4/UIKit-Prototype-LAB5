@@ -28,9 +28,12 @@
 
 <br>
 
+## 실행 방법
 1. Git 프로젝트를 Clone한다
 2. 프로젝트 폴더의 Sikdorak-iOS.xcodeproj 프로젝트 파일을 Xcode로 열기
 3. Xcode의 Run으로 실행
+
+<br>
   
 ## 단계별 사용자 시나리오
 
