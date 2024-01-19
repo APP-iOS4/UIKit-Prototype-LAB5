@@ -37,6 +37,9 @@
   
 ## 단계별 사용자 시나리오
 
+![Lab5 Proto 240119 720 GIF](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/152110747/2c37fe4e-555a-42d3-8e28-14c2a6149f74)
+
+
 ### 초기 진입화면
 <img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/37b0d15d-9cb4-450f-91e9-ca42c4135fa4" width="50%">   
 
