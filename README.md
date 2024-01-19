@@ -35,14 +35,15 @@
 ## 단계별 사용자 시나리오
 
 ### 초기 진입화면
-![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2024-01-18 at 09 33 59](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/37b0d15d-9cb4-450f-91e9-ca42c4135fa4)  
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/37b0d15d-9cb4-450f-91e9-ca42c4135fa4" width="50%">   
+
 - 키오스크의 감성을 살리고자 추가했습니다.
 - 화면 아무 곳을 터치하면 메뉴 선택화면으로 넘어갑니다.
 
 <br>
 
 ### 메뉴 선택화면
-![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2024-01-18 at 09 34 49](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/29054de8-9384-407d-b0f0-e90ae24484dd)  
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/60ee9df2-340d-49f0-96b2-9a93b1bff575" width="50%">  
 
 - 원하는 밀키트를 선택할 수 있습니다.
 - 밀키트를 선택하면 재료 선택화면으로 넘어갑니다.
@@ -52,7 +53,8 @@
 <br>
 
 ### 재료 선택화면
-![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2024-01-18 at 09 35 02](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/b6e35b47-9c2d-47b8-8108-4cb50b6af19e)  
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/55134132-7fdd-421a-9190-69f233f42fb7" width="49%">
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/a14dffad-ca61-48dd-aa89-b86b473fa39b" width="49%">  
 
 - 선택한 밀키트의 맵기 정도나 재료를 선택할 수 있습니다.
 - 선택 완료를 누르면 메뉴 선택화면으로 돌아갑니다.
@@ -60,7 +62,7 @@
 <br>
 
 ### 결제화면
-![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2024-01-18 at 09 35 25](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/b9d6d18c-5bd1-433f-80e8-b0cd648b52e5)  
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/60017c9f-eab5-4ca6-b297-37ccfd1a294a" width="50%">  
 
 - 장바구니에 담긴 밀키트 목록을 다시 한 번 확인할 수 있습니다
 - 밀키트의 이름, 맵기, 토핑, 사리, 합계 가격 등의 정보를 볼 수 있습니다.
@@ -69,7 +71,8 @@
 <br>
 
 ### 결제 완료 안내
-![Simulator Screenshot - iPad Pro (12 9-inch) (6th generation) - 2024-01-18 at 09 36 00](https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/429a2c60-a8f1-4258-a701-6b681714333b)
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/d237bef8-ec20-4258-8575-eb50c390d4da" width="49%">  
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/f76814ba-b98f-4604-aad4-7e66a48ba796" width="49%">  
 
 - 결제 완료 안내 메시지를 띄워줍니다.
 - 확인 버튼을 클릭하면 초기 진입화면으로 돌아갑니다.
@@ -105,10 +108,17 @@
 - 최준영 [@Devjunnn](https://github.com/Devjunnn)
 
 <br>
-## License
-Licensed under the [MIT](LICENSE) license.
-  
 
-  <br><br>
+# Notice
+- 이미지 문제 시, 삭제하도록 하겠습니다.
+
+<br>
+
+# License
+Copyright 멋쟁이사자처럼 Lab4. All rights reserved.
+
+Licensed under the [MIT](LICENSE) license.
+
+<br><br>
 
 
