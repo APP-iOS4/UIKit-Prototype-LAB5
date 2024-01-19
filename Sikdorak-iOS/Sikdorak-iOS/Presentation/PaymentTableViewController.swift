@@ -31,6 +31,9 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
         
         
         //Alert 버튼 연결
+//        showAlert()
+        let nextViewController = PaymentCompleteViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     
