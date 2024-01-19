@@ -80,7 +80,7 @@ fileprivate extension PaymentTableViewController {
             button.setTitle("결제하기", for: .normal)
             button.backgroundColor = .highlight
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 34)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
             return button
         }()
         

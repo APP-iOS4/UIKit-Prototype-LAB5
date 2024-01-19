@@ -220,6 +220,7 @@ fileprivate extension SelectMenuViewController {
             let button = UIButton()
             button.setTitle("주문하기", for: .normal)
             button.backgroundColor = .highlight
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
             button.translatesAutoresizingMaskIntoConstraints = false
             return button
         }()

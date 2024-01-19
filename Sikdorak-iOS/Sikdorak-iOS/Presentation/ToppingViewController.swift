@@ -177,6 +177,7 @@ fileprivate extension ToppingViewController {
             let button = UIButton()
             button.setTitle("선택 완료", for: .normal)
             button.backgroundColor = .highlight
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
             button.translatesAutoresizingMaskIntoConstraints = false
             return button
         }()
