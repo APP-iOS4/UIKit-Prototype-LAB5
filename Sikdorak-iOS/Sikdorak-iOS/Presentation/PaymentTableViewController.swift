@@ -86,11 +86,12 @@ fileprivate extension PaymentTableViewController {
         
         totalPrice = {
             let label = UILabel()
-            label.text = "총 결제금액 :   N    원"
+            label.text = "담은 금액: 68,800원   ."
+            label.font = .systemFont(ofSize: 18, weight: .semibold)
+            label.textAlignment = .right
+            label.textColor = .black
+            label.backgroundColor = .sub
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 28)
-            
             return label
         }()
     
