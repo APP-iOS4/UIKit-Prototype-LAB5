@@ -12,6 +12,7 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
     var stepView = StepView()
     var tableView = UITableView()
     var paymentButton = UIButton()
+    var totalPrice = UILabel()
     
     var cartList = Cart.mockData
     
@@ -30,7 +31,9 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
         
         
         //Alert 버튼 연결
-        showAlert()
+//        showAlert()
+        let nextViewController = PaymentCompleteViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     
@@ -41,67 +44,53 @@ class PaymentTableViewController: BaseViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! PaymentTableViewCell
         
+        cell.mainImageView.image = UIImage(named: "Buzzi")
+        cell.foodNameLabel.text = "\(cartList[indexPath.row].name)"
+        cell.descriptionLabel.text = " \(cartList[indexPath.row].price) 원"
+        cell.priceLabel.text = "25,000 원"
         
         
+       /*
         switch indexPath.row {
             
         case 0: 
             cell.mainImageView.image = UIImage(named: "Buzzi")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "부대찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "25,000 원"
+            cell.descriptionLabel.text = "가격 : 8,000 원"
 
-    80년 정통 존맛 부대찌개 밀키트
-       + 라면 사리
-       + 스팸
-       + 돼지 고기
 
-      합계 금액:                                                                          12,400원
-    """
         case 1: 
             cell.mainImageView.image = UIImage(named: "kimchi3")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "김치찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "24,000 원"
+            cell.descriptionLabel.text = "가격 : 7,000 원"
 
-    100년 정통 존맛 김치찌개 밀키트
-       + 라면 사리
-       + 꽁치
-       + 돼지 고기
-
-      합계 금액:                                                                          16,000원
-    """
+            
         case 2:
             cell.mainImageView.image = UIImage(named: "brownSoup")
+            cell.mainImageView.clipsToBounds = true
             cell.foodNameLabel.text = "된장찌개"
-            cell.descriptionLabel.text = """
+            cell.priceLabel.text = "23,000 원"
+            cell.descriptionLabel.text = "가격 : 6,000 원"
 
-    200년 조선시대 정통 존맛 된장찌개 밀키트
-       + 조개
-       + 차돌박이
-       + 두부
-
-      합계 금액:                                                                          20,400원
-    """
+        case 3:
+            cell.foodNameLabel.text = "총 주문금액 : 72,000 원"
             
-        default: 
+        default:
             break
         }
-        
+        */
         cell.selectionStyle = .none
         
         return cell
+        
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "", message: "결제가 완료되었습니다.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default){_ in
-            //1페이지(intro) 로 돌아가기
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        alert.addAction(okAction)
-        
-        
-        present(alert, animated: true, completion: nil)
-    }
+    
+    
 }
 
 
@@ -124,7 +113,7 @@ fileprivate extension PaymentTableViewController {
             tableView.topAnchor.constraint(equalTo: stepView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: paymentButton.topAnchor)
+            tableView.bottomAnchor.constraint(equalTo: totalPrice.topAnchor)
         ])
     }
     
@@ -138,20 +127,23 @@ fileprivate extension PaymentTableViewController {
             button.setTitle("결제하기", for: .normal)
             button.backgroundColor = .highlight
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 34)
+            
+            
             return button
         }()
         
-        /*
-        mealKitImageView = {
-            let imageView = UIImageView()
-            imageView.layer.cornerRadius = 8
-            imageView.backgroundColor = .lightGray
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
+        totalPrice = {
+            let label = UILabel()
+            label.text = "총 결제금액 :   N    원"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 28)
+            
+            return label
         }()
-         */
-        
-        [paymentButton, stepView].forEach {
+    
+        [totalPrice,paymentButton,stepView].forEach {
             view.addSubview($0)
         }
     }
@@ -171,6 +163,12 @@ fileprivate extension PaymentTableViewController {
             paymentButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             paymentButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             paymentButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+        NSLayoutConstraint.activate([
+            totalPrice.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            totalPrice.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            totalPrice.bottomAnchor.constraint(equalTo: paymentButton.topAnchor),
+            totalPrice.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
