@@ -81,7 +81,7 @@
 <img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/49361214/f76814ba-b98f-4604-aad4-7e66a48ba796" width="49%">  
 
 - 결제 완료 안내 메시지를 띄워줍니다.
-- 확인 버튼을 클릭하면 초기 진입화면으로 돌아갑니다.
+- 화면 아무 곳을 터치하면 초기 진입화면으로 돌아갑니다.
 
 <br>
 
