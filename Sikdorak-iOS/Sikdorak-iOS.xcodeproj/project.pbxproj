@@ -26,10 +26,12 @@
 		137851612B56A98D0080A36F /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851602B56A98D0080A36F /* Topping.swift */; };
 		137851652B56B25F0080A36F /* Jjigae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851642B56B25F0080A36F /* Jjigae.swift */; };
 		137851672B56B45B0080A36F /* Spicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851662B56B45B0080A36F /* Spicy.swift */; };
-		137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */; };
+		137851692B56B81B0080A36F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516A2B56E20D0080A36F /* ToppingViewController.swift */; };
 		1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */; };
 		138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138032FE2B58B80700956FDB /* UIImage+extension.swift */; };
+		138033012B58F09900956FDB /* SpicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138033002B58F09900956FDB /* SpicyTableViewCell.swift */; };
+		138E8D992B5A3C0100BCC1F6 /* MealKitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138E8D982B5A3C0100BCC1F6 /* MealKitCollectionViewCell.swift */; };
 		8C6D13D22B58F3C900F301B3 /* PaymentCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D13D12B58F3C900F301B3 /* PaymentCompleteViewController.swift */; };
 		8C6D13D42B5A01FA00F301B3 /* cooking.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D13D32B5A01FA00F301B3 /* cooking.json */; };
 		8C6D13D72B5A03F600F301B3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8C6D13D62B5A03F600F301B3 /* Lottie */; };
@@ -58,10 +60,11 @@
 		137851602B56A98D0080A36F /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		137851642B56B25F0080A36F /* Jjigae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jjigae.swift; sourceTree = "<group>"; };
 		137851662B56B45B0080A36F /* Spicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spicy.swift; sourceTree = "<group>"; };
-		137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealKitCollectionViewCell.swift; sourceTree = "<group>"; };
 		1378516A2B56E20D0080A36F /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingCollectionViewCell.swift; sourceTree = "<group>"; };
 		138032FE2B58B80700956FDB /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		138033002B58F09900956FDB /* SpicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpicyTableViewCell.swift; sourceTree = "<group>"; };
+		138E8D982B5A3C0100BCC1F6 /* MealKitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealKitCollectionViewCell.swift; sourceTree = "<group>"; };
 		8C6D13D12B58F3C900F301B3 /* PaymentCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteViewController.swift; sourceTree = "<group>"; };
 		8C6D13D32B5A01FA00F301B3 /* cooking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cooking.json; sourceTree = "<group>"; };
 		8C6D13D82B5A0F5600F301B3 /* eggfry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eggfry.json; sourceTree = "<group>"; };
@@ -125,11 +128,12 @@
 				137851482B5680B70080A36F /* LaunchScreen.storyboard */,
 				137851412B5680B50080A36F /* IntroViewController.swift */,
 				137851592B56A76F0080A36F /* SelectMenuViewController.swift */,
+				138E8D982B5A3C0100BCC1F6 /* MealKitCollectionViewCell.swift */,
 				1378516A2B56E20D0080A36F /* ToppingViewController.swift */,
-				137851682B56B81B0080A36F /* MealKitCollectionViewCell.swift */,
 				136D106D2B57F27A00EE4D8F /* ToppingHeaderView.swift */,
 				136D106F2B57FC2000EE4D8F /* ToppingTitleHeaderView.swift */,
 				1378516C2B56E8AF0080A36F /* ToppingCollectionViewCell.swift */,
+				138033002B58F09900956FDB /* SpicyTableViewCell.swift */,
 				08E945EB2B5764120037544E /* PaymentTableViewController.swift */,
 				08E945ED2B578AC60037544E /* PaymentTableViewCell.swift */,
 				136D10692B57D6E000EE4D8F /* CartCollectionViewCell.swift */,
@@ -251,7 +255,7 @@
 				137851422B5680B50080A36F /* IntroViewController.swift in Sources */,
 				1378516D2B56E8AF0080A36F /* ToppingCollectionViewCell.swift in Sources */,
 				137851612B56A98D0080A36F /* Topping.swift in Sources */,
-				137851692B56B81B0080A36F /* MealKitCollectionViewCell.swift in Sources */,
+				137851692B56B81B0080A36F /* (null) in Sources */,
 				08E945EC2B5764120037544E /* PaymentTableViewController.swift in Sources */,
 				136D106E2B57F27A00EE4D8F /* ToppingHeaderView.swift in Sources */,
 				08E945EE2B578AC60037544E /* PaymentTableViewCell.swift in Sources */,
@@ -262,11 +266,13 @@
 				1378515D2B56A9130080A36F /* MealKit.swift in Sources */,
 				1378515A2B56A76F0080A36F /* SelectMenuViewController.swift in Sources */,
 				137851652B56B25F0080A36F /* Jjigae.swift in Sources */,
+				138033012B58F09900956FDB /* SpicyTableViewCell.swift in Sources */,
 				137851672B56B45B0080A36F /* Spicy.swift in Sources */,
 				138032FF2B58B80700956FDB /* UIImage+extension.swift in Sources */,
 				1378516B2B56E20D0080A36F /* ToppingViewController.swift in Sources */,
 				136D106C2B57EBE700EE4D8F /* StepView.swift in Sources */,
 				137851402B5680B50080A36F /* SceneDelegate.swift in Sources */,
+				138E8D992B5A3C0100BCC1F6 /* MealKitCollectionViewCell.swift in Sources */,
 				136D10702B57FC2000EE4D8F /* ToppingTitleHeaderView.swift in Sources */,
 				8C6D13D22B58F3C900F301B3 /* PaymentCompleteViewController.swift in Sources */,
 			);

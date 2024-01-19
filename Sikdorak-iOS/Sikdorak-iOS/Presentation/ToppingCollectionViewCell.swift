@@ -12,6 +12,17 @@ class ToppingCollectionViewCell: UICollectionViewCell {
     var mealKitImageView = UIImageView()
     var titleLabel = UILabel()
     var priceLabel = UILabel()
+    var toppingCountLabel = UILabel()
+    var minusButton = UIButton()
+    var plusButton = UIButton()
+    
+    var countButtonAction: (() -> ())?
+    
+    var toppingCount: Int = 0 {
+        didSet {
+            toppingCountLabel.text = "\(toppingCount)"
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,18 +41,18 @@ class ToppingCollectionViewCell: UICollectionViewCell {
         priceLabel.text = "+ \(topping.price.formatted(.number))원"
     }
     
-    func bind(spicy: Spicy) {
-        switch spicy {
-        case .a:
-            mealKitImageView.image = UIImage(named: "spicy_easy")
-        case .b:
-            mealKitImageView.image = UIImage(named: "spicy_normal")
-        case .c:
-            mealKitImageView.image = UIImage(named: "spicy_hard")
+    @objc func minusCount() {
+        if toppingCount > 0 {
+            toppingCount -= 1
+            countButtonAction?()
         }
-        
-        titleLabel.text = "\(spicy.rawValue)"
-        priceLabel.text = ""
+    }
+    
+    @objc func plusCount() {
+        if toppingCount < 999 {
+            toppingCount += 1
+            countButtonAction?()
+        }
     }
     
 }
@@ -62,6 +73,7 @@ fileprivate extension ToppingCollectionViewCell {
         
         titleLabel = {
             let label = UILabel()
+            label.font = .systemFont(ofSize: 24, weight: .bold)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -69,12 +81,47 @@ fileprivate extension ToppingCollectionViewCell {
         
         priceLabel = {
             let label = UILabel()
+            label.font = .systemFont(ofSize: 20, weight: .medium)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
-        [mealKitImageView, titleLabel, priceLabel].forEach {
+        toppingCountLabel = {
+            let label = UILabel()
+            label.text = "0"
+            label.textColor = .black
+            label.textAlignment = .center
+            label.backgroundColor = .white
+            label.layer.cornerRadius = 4
+            label.layer.borderWidth = 0.3
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        minusButton = {
+            let button = UIButton()
+            button.tintColor = .white
+            button.backgroundColor = .highlight
+            button.layer.cornerRadius = 6
+            button.setImage(UIImage(systemName: "minus"), for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(minusCount), for: .touchUpInside)
+            return button
+        }()
+        
+        plusButton = {
+            let button = UIButton()
+            button.tintColor = .white
+            button.backgroundColor = .highlight
+            button.layer.cornerRadius = 6
+            button.setImage(UIImage(systemName: "plus"), for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(plusCount), for: .touchUpInside)
+            return button
+        }()
+        
+        [mealKitImageView, titleLabel, priceLabel, toppingCountLabel, minusButton, plusButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -91,8 +138,32 @@ fileprivate extension ToppingCollectionViewCell {
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: mealKitImageView.bottomAnchor, constant: 16),
             priceLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -2),
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2)
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4)
+        ])
+        
+        NSLayoutConstraint.activate([
+            toppingCountLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 16),
+            toppingCountLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            toppingCountLabel.widthAnchor.constraint(equalToConstant: 50),
+            toppingCountLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            minusButton.trailingAnchor.constraint(equalTo: toppingCountLabel.leadingAnchor, constant: -8),
+            minusButton.centerYAnchor.constraint(equalTo: toppingCountLabel.centerYAnchor),
+            minusButton.widthAnchor.constraint(equalToConstant: 20),
+            minusButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            plusButton.leadingAnchor.constraint(equalTo: toppingCountLabel.trailingAnchor, constant: 8),
+            plusButton.centerYAnchor.constraint(equalTo: toppingCountLabel.centerYAnchor),
+            plusButton.widthAnchor.constraint(equalToConstant: 20),
+            plusButton.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
     
+}
+
+
+#Preview(traits: .fixedLayout(width: 400, height: 440)) {
+    let toppingCell = ToppingCollectionViewCell()
+    toppingCell.bind(topping: Topping(image: "ramen_sari", name: "라면 사리", price: 1500))
+    return toppingCell
 }

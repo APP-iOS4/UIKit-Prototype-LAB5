@@ -43,6 +43,20 @@ class ToppingHeaderView: UICollectionReusableView {
         return label
     }()
     
+    var spicyTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.layer.cornerRadius = 8
+        tableView.rowHeight = 61
+        tableView.register(SpicyTableViewCell.self, forCellReuseIdentifier: "SpicyCell")
+        tableView.isScrollEnabled = false
+        tableView.allowsMultipleSelection = false
+        tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    var spicy: [Spicy] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -58,22 +72,52 @@ class ToppingHeaderView: UICollectionReusableView {
         mealkitImageView.image = UIImage(named: "\(mealkit.jjigae.image)")//?.resize(newWidth: 300)
         titleLabel.text = mealkit.jjigae.name
         priceLabel.text = "\(mealkit.jjigae.price.formatted())원"
+        spicy = mealkit.jjigae.spicy
     }
+    
+}
+
+
+extension ToppingHeaderView: UITableViewDelegate { 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
+    
+}
+
+extension ToppingHeaderView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return spicy.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SpicyCell", for: indexPath) as! SpicyTableViewCell
+        cell.bind(spicy: spicy[indexPath.row])
+        return cell
+    }
+    
+    
+}
+
+fileprivate extension ToppingHeaderView {
     
     func setUI() {
         self.addSubview(mealkitImageView)
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
         self.addSubview(explainLabel)
+        self.addSubview(spicyTableView)
+        
+        spicyTableView.delegate = self
+        spicyTableView.dataSource = self
     }
     
     func setLayout() {
         NSLayoutConstraint.activate([
             mealkitImageView.topAnchor.constraint(equalTo: self.topAnchor),
             mealkitImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mealkitImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            mealkitImageView.widthAnchor.constraint(equalToConstant: 300),
-//            mealkitImageView.heightAnchor.constraint(equalTo: mealkitImageView.widthAnchor, multiplier: 1),
+            mealkitImageView.bottomAnchor.constraint(equalTo: spicyTableView.topAnchor, constant: -16),
+            mealkitImageView.widthAnchor.constraint(equalTo: mealkitImageView.heightAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: mealkitImageView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: mealkitImageView.trailingAnchor, constant: 32),
@@ -83,14 +127,19 @@ class ToppingHeaderView: UICollectionReusableView {
             
             explainLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 8),
             explainLabel.leadingAnchor.constraint(equalTo: priceLabel.leadingAnchor),
-            explainLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+            explainLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            
+            spicyTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            spicyTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            spicyTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            spicyTableView.heightAnchor.constraint(equalToConstant: 183)
         ])
     }
     
 }
 
 
-#Preview(traits: .fixedLayout(width: 1400, height: 300)) {
+#Preview(traits: .fixedLayout(width: 1400, height: 500)) {
     let headerView = ToppingHeaderView()
     headerView.bind(MealKit.mockData[0])
     return headerView
