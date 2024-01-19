@@ -22,7 +22,7 @@ class ToppingViewController: BaseViewController {
     
     var totalPrice: Int = 0 {
         didSet {
-            totalPriceLabel.text = "\(totalPrice.formatted())원"
+            totalPriceLabel.text = "담은 금액: \(totalPrice.formatted())원   ."
         }
     }
     
@@ -163,7 +163,7 @@ fileprivate extension ToppingViewController {
         
         totalPriceLabel = {
             let label = UILabel()
-            label.text = "담은 금액: 10,000원   ."
+            label.text = "담은 금액: 0원   ."
             label.font = .systemFont(ofSize: 18, weight: .semibold)
             label.textAlignment = .right
             label.textColor = .black
