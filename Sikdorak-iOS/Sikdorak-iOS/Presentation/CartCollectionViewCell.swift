@@ -57,7 +57,7 @@ fileprivate extension CartCollectionViewCell {
         
         removeButton = {
             let button = UIButton()
-            button.frame.size = CGSize(width: 50, height: 18)
+            button.frame.size = CGSize(width: 20, height: 10)
             button.backgroundColor = .highlight
             button.layer.cornerRadius = 5
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -117,8 +117,10 @@ fileprivate extension CartCollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             
-            removeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 222),
+            removeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 232),
             removeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 13),
+            removeButton.heightAnchor.constraint(equalToConstant: 20),
+            removeButton.widthAnchor.constraint(equalToConstant: 20),
             
             spicyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             spicyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
