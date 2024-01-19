@@ -158,6 +158,7 @@ fileprivate extension ToppingViewController {
             collectionView.register(ToppingTitleHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ToppingTitleHeader")
             collectionView.backgroundColor = .main
             collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.contentInset = .init(top: 16, left: 0, bottom: 0, right: 0)
             return collectionView
         }()
         

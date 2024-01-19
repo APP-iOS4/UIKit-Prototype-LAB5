@@ -35,10 +35,12 @@ class PaymentCompleteViewController: UIViewController {
             self.animationView.stop()
             self.animationView.isHidden = true
         })
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+        
         completeMsgLabel.text = "주문이 완료 되었습니다."
         orderNumberLabel.text = "주문번호"
         orderNumberIntLabel.text = "77"

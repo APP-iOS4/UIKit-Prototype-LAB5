@@ -152,6 +152,7 @@ fileprivate extension SelectMenuViewController {
             collectionView.delegate = self
             collectionView.register(MealKitCollectionViewCell.self, forCellWithReuseIdentifier: "MealKitCell")
             collectionView.backgroundColor = .main
+            collectionView.contentInset = .init(top: 16, left: 0, bottom: 16, right: 0)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             return collectionView
         }()
@@ -238,7 +239,7 @@ fileprivate extension SelectMenuViewController {
         NSLayoutConstraint.activate([
             mealKitCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             mealKitCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
-            mealKitCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 14),
+            mealKitCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             mealKitCollectionView.bottomAnchor.constraint(equalTo: cartView.topAnchor)
         ])
         

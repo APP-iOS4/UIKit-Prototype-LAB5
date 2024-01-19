@@ -25,6 +25,18 @@ class IntroViewController: BaseViewController {
         setAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @objc func tapAction() {
         let selectMenuViewController = SelectMenuViewController()
         self.navigationController?.pushViewController(selectMenuViewController, animated: true)
