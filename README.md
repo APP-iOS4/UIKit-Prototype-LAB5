@@ -96,13 +96,13 @@
 <br>
 
 ## 5조 조원 이름
-- [심상원](https://github.com/Upcircle2)
+- 심상원 [@Upcircle2](https://github.com/Upcircle2)
 ######
-- [유승재](https://github.com/seungjaeyuu)
+- 유승재 [@seungjaeyuu](https://github.com/seungjaeyuu)
 ######
-- [유지호](https://github.com/jihoooo97)
+- 유지호 [@jihoooo97](https://github.com/jihoooo97)
 ######
-- [최준영](https://github.com/Devjunnn)
+- 최준영 [@Devjunnn](https://github.com/Devjunnn)
 
 <br>
 ## License
