@@ -19,8 +19,11 @@ class SelectMenuViewController: BaseViewController {
     var cartCollectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     
     var orderButton = UIButton()
-    let toppingSelectedButton: UIButton = UIButton()
-    let cartSelectedButton: UIButton = UIButton()
+    let toppingSelectedButton = UIButton()
+    let cartSelectedButton = UIButton()
+    
+    
+    var cartCounter: Int = 0
     
     let mealKitList: [MealKit] = MealKit.mockData
     var cartList: [Cart] = Cart.mockData {
@@ -28,7 +31,6 @@ class SelectMenuViewController: BaseViewController {
             cartView.isHidden = cartList.count == 0
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +45,6 @@ class SelectMenuViewController: BaseViewController {
         let paymentTableViewController = PaymentTableViewController()
         paymentTableViewController.cartList = cartList
         self.navigationController?.pushViewController(paymentTableViewController, animated: true)
-    }
-    
-    // 토핑 고르기 버튼
-    @objc func toppingSelectedButtonTapped() {
-        let toppinViewController = ToppingViewController()
-        navigationController?.pushViewController(toppinViewController, animated: true)
     }
 }
 
@@ -92,7 +88,7 @@ extension SelectMenuViewController: UICollectionViewDataSource {
         case mealKitCollectionView:
             return mealKitList.count
         case cartCollectionView:
-            return cartList.count
+            return cartCounter
         default: return 0
         }
     }
@@ -103,11 +99,34 @@ extension SelectMenuViewController: UICollectionViewDataSource {
         case mealKitCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MealKitCell", for: indexPath) as! MealKitCollectionViewCell
             cell.bind(mealKit: mealKitList[indexPath.row])
-            cell.toppingSelectedButtonTapped = {  }
+            
+            
+            cell.toppingSelectedButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                let toppingViewController = ToppingViewController()
+                toppingViewController.mealKitInfo = self.mealKitList[indexPath.row]
+                self.navigationController?.pushViewController(toppingViewController, animated: true)
+            }
+            
+            cell.cartCounterDidChange = { [weak self] in
+                guard let self = self else { return }
+                self.cartCounter += 1
+                cartCollectionView.reloadData()
+                print(self.cartCounter)
+            }
             return cell
+            
         case cartCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCollectionViewCell
-            cell.bind(cartItem: cartList[indexPath.row])
+            cell.bind(cartItem: cartList[0])
+            
+            cell.cartCounterMinusDidChange = { [weak self] in
+                guard let self = self else { return }
+                self.cartCounter -= 1
+                cartCollectionView.reloadData()
+                print(self.cartCounter)
+            }
+             
             return cell
         default: return .init()
         }
@@ -258,6 +277,8 @@ fileprivate extension SelectMenuViewController {
     func setAction() {
         orderButton.addTarget(self, action: #selector(tapOrderButton), for: .touchUpInside)
     }
+    
+
 }
 
 

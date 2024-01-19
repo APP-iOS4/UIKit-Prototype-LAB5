@@ -18,12 +18,17 @@ class MealKitCollectionViewCell: UICollectionViewCell {
     var toppingSelectedButton: UIButton = UIButton()
     var cartSelectedButton: UIButton = UIButton()
     
-    var toppingSelectedButtonTapped = { }
+    var toppingSelectedButtonTapped: (() -> ())?
+    var cartCounterDidChange: (() -> ())?
     
-    @objc func buttonTapped() {
-        toppingSelectedButtonTapped()
-        }
-  
+    @objc func toppingButtonTapped() {
+        toppingSelectedButtonTapped?()
+    }
+    
+    @objc func cartAddOne() {
+        cartCounterDidChange?()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,7 +46,7 @@ class MealKitCollectionViewCell: UICollectionViewCell {
         likeCountLabel.text = mealKit.likeCount.formatted(.number)
         titleLabel.text = mealKit.jjigae.name
         priceLabel.text = "\(mealKit.jjigae.price.formatted(.number))원 ~"
-        toppingSelectedButton.setTitle("재료 고르기", for: .normal)
+        toppingSelectedButton.setTitle("재료 선택", for: .normal)
         cartSelectedButton.setTitle("카트 담기", for: .normal)
     }
 }
@@ -94,30 +99,31 @@ fileprivate extension MealKitCollectionViewCell {
             return label
         }()
         
-        cartSelectedButton = {
-            let button = UIButton()
-            button.titleLabel?.text = "기본 주문"
-            button.tintColor = .black
-            button.frame.size = CGSize(width: 30, height: 18)
-            button.backgroundColor = .highlight
-            button.translatesAutoresizingMaskIntoConstraints = false
-            
-            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-            
-            return button
-        }()
-        
         toppingSelectedButton = {
             let button = UIButton()
-            button.titleLabel?.text = "토핑 고르기"
-            button.tintColor = .black
-            button.frame.size = CGSize(width: 30, height: 18)
+            button.frame.size = CGSize(width: 50, height: 18)
             button.backgroundColor = .highlight
+            button.layer.cornerRadius = 5
             button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.addTarget(self, action:  #selector(toppingButtonTapped), for: .touchUpInside)
+            
             return button
         }()
         
-        [mealKitImageView, likeImageView, likeCountLabel, titleLabel, priceLabel, cartSelectedButton, toppingSelectedButton].forEach {
+        cartSelectedButton = {
+            let button = UIButton()
+            button.frame.size = CGSize(width: 50, height: 18)
+            button.backgroundColor = .highlight
+            button.layer.cornerRadius = 5
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.addTarget(self, action: #selector(cartAddOne), for: .touchUpInside)
+
+            return button
+        }()
+        
+        [mealKitImageView, likeImageView, likeCountLabel, titleLabel, priceLabel, toppingSelectedButton, cartSelectedButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -151,11 +157,11 @@ fileprivate extension MealKitCollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            cartSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 60),
-            cartSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3),
+            toppingSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 60),
+            toppingSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3),
             
-            toppingSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -60),
-            toppingSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3)
+            cartSelectedButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -60),
+            cartSelectedButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3)
         ])
     }
 }

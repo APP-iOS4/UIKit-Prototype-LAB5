@@ -15,6 +15,14 @@ class CartCollectionViewCell: UICollectionViewCell {
     var sariLabel = UILabel()
     var priceLabel = UILabel()
     
+    var removeButton = UIButton()
+    
+    var cartCounterMinusDidChange: (() -> ())?
+    
+    @objc func cartMinusOne() {
+        cartCounterMinusDidChange?()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,6 +36,7 @@ class CartCollectionViewCell: UICollectionViewCell {
     
     func bind(cartItem: Cart) {
         titleLabel.text = cartItem.name
+        removeButton.setTitle("X", for: .normal)
         spicyLabel.text = "맵기: \(cartItem.spicy.rawValue)"
         priceLabel.text = "\(cartItem.price.formatted())원"
         
@@ -37,7 +46,6 @@ class CartCollectionViewCell: UICollectionViewCell {
         let sariList = cartItem.sari.map { $0.name }
         sariLabel.text = "사리: \(sariList.joined(separator: ", "))"
     }
-    
 }
 
 
@@ -46,6 +54,17 @@ fileprivate extension CartCollectionViewCell {
     func setUI() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 8
+        
+        removeButton = {
+            let button = UIButton()
+            button.frame.size = CGSize(width: 50, height: 18)
+            button.backgroundColor = .highlight
+            button.layer.cornerRadius = 5
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.addTarget(self, action:  #selector(cartMinusOne), for: .touchUpInside)
+            return button
+        }()
         
         titleLabel = {
             let label = UILabel()
@@ -88,7 +107,7 @@ fileprivate extension CartCollectionViewCell {
             return label
         }()
         
-        [titleLabel, spicyLabel, toppingLabel, sariLabel, priceLabel].forEach {
+        [titleLabel, removeButton, spicyLabel, toppingLabel, sariLabel, priceLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -97,6 +116,9 @@ fileprivate extension CartCollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            
+            removeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 222),
+            removeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 13),
             
             spicyLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             spicyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -111,7 +133,6 @@ fileprivate extension CartCollectionViewCell {
             priceLabel.topAnchor.constraint(equalTo: sariLabel.bottomAnchor, constant: 8)
         ])
     }
-    
 }
 
 

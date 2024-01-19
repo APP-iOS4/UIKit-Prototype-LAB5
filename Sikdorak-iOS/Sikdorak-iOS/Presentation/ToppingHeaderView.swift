@@ -86,7 +86,7 @@ class ToppingHeaderView: UICollectionReusableView {
             explainLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
-    
+
 }
 
 
