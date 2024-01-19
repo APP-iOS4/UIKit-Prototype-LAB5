@@ -37,7 +37,7 @@
   
 ## 단계별 사용자 시나리오
 
-<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/152110747/2c37fe4e-555a-42d3-8e28-14c2a6149f74" width="50%">
+<img src="https://github.com/APP-iOS4/UIKit-Prototype-LAB5/assets/152110747/4fcc0f06-4e64-4b10-b405-e34972db3a1f" width="50%">
 
 
 ### 초기 진입화면
